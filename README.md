@@ -15,6 +15,22 @@ Open http://127.0.0.1:4173, or double-click **Big Boy 4014.html** after building
 
 Use **Begin journey** to start the recording. **Cab** enters the locomotive; drag to look around and scroll to change the field of view. The other camera buttons return outside. **Hide controls** also hides titles; its button remains available to restore the interface.
 
+## Web build and deployment
+
+```sh
+npm run check
+npm run build:web
+npm run preview:web
+```
+
+Publish **only `dist/`**. The web build copies the generated page's script dependencies, the assets explicitly used by those bundles, and attribution records. Screenshots, repository archives, build inputs, original model/audio duplicates, and portable HTML exports are excluded. The output directory is recreated on every web build to prevent stale files from being published. `web-build-manifest.json` lists every output file and its size outside the public directory.
+
+Models are served as losslessly compressed binary files; textures and recordings keep their original bytes. Asset filenames contain content hashes for reliable long-term caching. The offline build remains available via `npm run build`.
+
+Rendering uses native display resolution with a four-million-pixel budget and a 1.75 pixel-ratio ceiling. Automatic resolution adjustments stop at one pixel per CSS pixel, and nearby trees outside both the view and shadow frustums are skipped. Use `?quality=high` to disable automatic resolution changes. `window.__performanceState` exposes measured frame time, resolution and whole-frame draw counts for diagnostics.
+
+Firebase Hosting is configured to publish `dist/` to the `sitemap-polar` site. Build before deploying; never upload the repository root.
+
 ## Assets and startup
 
 Runtime inputs are stored losslessly in `.assets/` as small compressed parts to stay below GitHub's individual-file limits. `asset-manifest.json` records their original paths, sizes and SHA-256 checksums. Building restores missing inputs automatically; `npm run check` verifies them.

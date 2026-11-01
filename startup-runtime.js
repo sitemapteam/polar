@@ -1,7 +1,12 @@
 // Native decoding avoids constructing a JavaScript number for every asset byte.
 function decodeBase64Bytes(encoded){if(Uint8Array.fromBase64)return Uint8Array.fromBase64(encoded);const raw=atob(encoded),bytes=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);return bytes;}
 async function inflateAsset(encoded){const bytes=decodeBase64Bytes(encoded);return new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer());}
-async function readPackedAsset(store,key,release=false){const bytes=store.$gzip?.includes(key)?await inflateAsset(store[key]):decodeBase64Bytes(store[key]);if(release)delete store[key];return bytes;}
+async function readPackedAsset(store,key,release=false){
+ let bytes;
+ if(store.$external){const response=await fetch(store[key]);if(!response.ok)throw Error('Could not load '+key+' ('+response.status+')');bytes=new Uint8Array(await (store.$gzip?.includes(key)?new Response(response.body.pipeThrough(new DecompressionStream('gzip'))):response).arrayBuffer());}
+ else bytes=store.$gzip?.includes(key)?await inflateAsset(store[key]):decodeBase64Bytes(store[key]);
+ if(release)delete store[key];return bytes;
+}
 function releaseGLTFSource(asset){asset.scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});asset.scene.clear();asset.parser=null;}
 window.__startupStages=[];
 async function bootYield(label){if(label)$('loading').querySelector('p').textContent=label;window.__startupStages.push({label,time:performance.now()});if(window.scheduler?.yield)await window.scheduler.yield();else await new Promise(resolve=>setTimeout(resolve,0));}
