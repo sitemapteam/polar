@@ -34,22 +34,13 @@ With the web preview running and Chrome installed, `npm run check:browser` check
 
 Firebase Hosting is configured to publish `dist/` to the `sitemap-polar` site. Build before deploying; never upload the repository root.
 
-## Cloud GPU session
+## Cloud GPU infrastructure
 
-The GPU deployment runs the original hosted app in kiosk Chrome on `polar-gpu-1`, a Google Compute Engine `g2-standard-8` virtual workstation with one NVIDIA L4 in `us-east4-a`. Selkies sends its picture and stereo audio to the browser and forwards camera/button input. This is one shared interactive session, not an independent session for every visitor. Firebase continues to serve the app and its assets.
+The app's public address remains **https://sitemap-polar.web.app**. Do not introduce another user-facing domain without explicit authorization.
 
-The stream address is `https://polar.35-245-246-78.sslip.io`. Login credentials are supplied separately and must not be committed. HTTPS terminates at Caddy; the streaming port binds only to localhost, and SSH is restricted to Google IAP. The VM has no Google service account. Cloud billing continues while the VM runs, including workstation licensing, disk, IP and network charges.
+The separate GPU deployment on `polar-gpu-1` (`g2-standard-8`, NVIDIA L4, `us-east4-a`) is stopped following rejection of the alternate domain. It is not serving the public app. Its infrastructure scripts remain under `cloud/gpu/`, outside the web build. Any future integration must preserve the existing public address. Restarting this machine alone does not integrate it with Firebase Hosting.
 
-`cloud/gpu/startup.sh` installs the Google workstation driver. `install-host.sh` installs the NVIDIA container runtime, Caddy and Selkies 2.2.0, recording the pulled image digest. `run-polar.sh` launches the app; `stream.env` selects native display resolution, a 60 fps stream target, 40 Mbps video and 320 kbps stereo audio. These are encoding settings, not measured application frame rates. `publish.sh` starts the container with automatic restart and configures HTTPS. The browser stream is compressed; source assets and source recordings are unchanged. These infrastructure files are excluded from the web build.
-
-To stop or restart the GPU session:
-
-```sh
-gcloud compute instances stop polar-gpu-1 --project=sitemap-polar --zone=us-east4-a
-gcloud compute instances start polar-gpu-1 --project=sitemap-polar --zone=us-east4-a
-```
-
-Stopping the VM stops compute/GPU charges; persistent disk and reserved IP charges remain. The reserved address `polar-gpu-ip` keeps the stream hostname stable across restarts.
+Compute/GPU charges stop while the VM is stopped; its retained disk and reserved IP still incur charges.
 
 ## Assets and startup
 
