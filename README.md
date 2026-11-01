@@ -34,6 +34,23 @@ With the web preview running and Chrome installed, `npm run check:browser` check
 
 Firebase Hosting is configured to publish `dist/` to the `sitemap-polar` site. Build before deploying; never upload the repository root.
 
+## Cloud GPU session
+
+The GPU deployment runs the original hosted app in kiosk Chrome on `polar-gpu-1`, a Google Compute Engine `g2-standard-8` virtual workstation with one NVIDIA L4 in `us-east4-a`. Selkies sends its picture and stereo audio to the browser and forwards camera/button input. This is one shared interactive session, not an independent session for every visitor. Firebase continues to serve the app and its assets.
+
+The stream address is `https://polar.35-245-246-78.sslip.io`. Login credentials are supplied separately and must not be committed. HTTPS terminates at Caddy; the streaming port binds only to localhost, and SSH is restricted to Google IAP. The VM has no Google service account. Cloud billing continues while the VM runs, including workstation licensing, disk, IP and network charges.
+
+`cloud/gpu/startup.sh` installs the Google workstation driver. `install-host.sh` installs the NVIDIA container runtime, Caddy and Selkies 2.2.0, recording the pulled image digest. `run-polar.sh` launches the app; `stream.env` selects native display resolution, a 60 fps stream target, 40 Mbps video and 320 kbps stereo audio. These are encoding settings, not measured application frame rates. `publish.sh` starts the container with automatic restart and configures HTTPS. The browser stream is compressed; source assets and source recordings are unchanged. These infrastructure files are excluded from the web build.
+
+To stop or restart the GPU session:
+
+```sh
+gcloud compute instances stop polar-gpu-1 --project=sitemap-polar --zone=us-east4-a
+gcloud compute instances start polar-gpu-1 --project=sitemap-polar --zone=us-east4-a
+```
+
+Stopping the VM stops compute/GPU charges; persistent disk and reserved IP charges remain. The reserved address `polar-gpu-ip` keeps the stream hostname stable across restarts.
+
 ## Assets and startup
 
 Runtime inputs are stored losslessly in `.assets/` as small compressed parts to stay below GitHub's individual-file limits. `asset-manifest.json` records their original paths, sizes and SHA-256 checksums. Building restores missing inputs automatically; `npm run check` verifies them.
