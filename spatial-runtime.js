@@ -20,6 +20,38 @@ function partitionTerrain(source, cellSize) {
  source.visible=false;return group;
 }
 const spatialVertex=new T.Vector3();
+// All twelve distant-tree variants share one atlas. Batch by location rather
+// than variant so offscreen woodland is culled without changing any tree.
+function partitionForestAtlas(sources,cellSize=512){
+ const cells=new Map(),matrix=new T.Matrix4(),color=new T.Color();
+ for(let variant=0;variant<sources.length;variant++){
+  const source=sources[variant];
+  for(let i=0;i<source.count;i++){
+   source.getMatrixAt(i,matrix);source.getColorAt(i,color);
+   const key=Math.floor(matrix.elements[12]/cellSize)+','+Math.floor(matrix.elements[14]/cellSize);
+   if(!cells.has(key))cells.set(key,[]);
+   cells.get(key).push({matrix:matrix.clone(),color:color.clone(),variant});
+  }
+ }
+ const base=sources[0].geometry,uv=base.attributes.uv.clone();
+ for(let i=0;i<uv.count;i++)uv.setXY(i,uv.getX(i)*4,uv.getY(i)*4);
+ const material=sources[0].material,compile=material.onBeforeCompile;
+ material.onBeforeCompile=shader=>{
+  compile(shader);shader.vertexShader='attribute vec2 forestAtlasTile;\n'+shader.vertexShader;
+  shader.vertexShader=shader.vertexShader.replace('#include <uv_vertex>','#include <uv_vertex>\nvMapUv=(vMapUv+forestAtlasTile)*.25;');
+ };
+ material.customProgramCacheKey=()=> 'spatial-forest-atlas-v1';
+ const group=new T.Group();group.name='Winter woodland / spatial atlas';sources[0].parent.add(group);
+ for(const items of cells.values()){
+  const geometry=new T.BufferGeometry();geometry.setIndex(base.index);geometry.setAttribute('position',base.attributes.position);geometry.setAttribute('uv',uv);
+  const offsets=new Float32Array(items.length*2),part=new T.InstancedMesh(geometry,material,items.length);
+  for(let i=0;i<items.length;i++){const item=items[i];part.setMatrixAt(i,item.matrix);part.setColorAt(i,item.color);offsets[i*2]=item.variant%4;offsets[i*2+1]=Math.floor(item.variant/4);}
+  geometry.setAttribute('forestAtlasTile',new T.InstancedBufferAttribute(offsets,2));
+  part.computeBoundingSphere();part.boundingSphere.radius+=50;group.add(part);
+ }
+ for(const source of sources){source.removeFromParent();source.dispose();}
+ return group;
+}
 function partitionStaticInstances(source,cellSize=256){
  const cells=new Map(),matrix=new T.Matrix4(),color=new T.Color();
  for(let i=0;i<source.count;i++){

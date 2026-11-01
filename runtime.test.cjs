@@ -23,3 +23,18 @@ test('audio lookahead schedules evenly, skips stalled intervals, and respects pa
  c.running=false;const count=events.length;c.now=3;c.scheduleTrainAudio();assert.equal(events.length,count);
  a.effectsScheduledUntil=50;c.now=50;c.running=true;c.scheduleTrainAudio();assert.ok(events.at(-1)>150);
 });
+test('forest batching preserves every tree, atlas tile and color',()=>{
+ const c=spatial(),scene=new T.Scene(),sources=[];
+ for(let variant=0;variant<12;variant++){
+  const geometry=new T.PlaneGeometry(1.65,1.16),uv=geometry.attributes.uv;
+  for(let i=0;i<uv.count;i++)uv.setXY(i,(variant%4+uv.getX(i))/4,(Math.floor(variant/4)+uv.getY(i))/4);
+  const source=new T.InstancedMesh(geometry,new T.MeshBasicMaterial(),2);
+  for(let i=0;i<2;i++){source.setMatrixAt(i,new T.Matrix4().makeTranslation(i*600,variant,3));source.setColorAt(i,new T.Color(variant/12,.2,.4));}
+  scene.add(source);sources.push(source);
+ }
+ const group=c.partitionForestAtlas(sources),seen=[];
+ for(const mesh of group.children){const offsets=mesh.geometry.attributes.forestAtlasTile;
+  for(let i=0;i<mesh.count;i++){const matrix=new T.Matrix4(),color=new T.Color();mesh.getMatrixAt(i,matrix);mesh.getColorAt(i,color);const variant=matrix.elements[13];assert.equal(offsets.getX(i),variant%4);assert.equal(offsets.getY(i),Math.floor(variant/4));assert.ok(Math.abs(color.r-variant/12)<1e-6);seen.push(variant);}
+ }
+ assert.equal(seen.length,24);for(let i=0;i<12;i++)assert.equal(seen.filter(x=>x===i).length,2);
+});

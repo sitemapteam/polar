@@ -20,6 +20,7 @@ Use **Begin journey** to start the recording. **Cab** enters the locomotive; dra
 ```sh
 npm ci
 npm run check
+npm test
 npm run build:web
 npm run preview:web
 ```
@@ -28,7 +29,9 @@ Publish **only `dist/`**. The web build copies the generated page's script depen
 
 Models are served as losslessly compressed binary files; textures and recordings keep their original bytes. Asset filenames contain content hashes for reliable long-term caching. The offline build remains available via `npm run build`.
 
-Rendering uses stable display resolution (up to 1.5 device pixels per CSS pixel) with 4× multisampling on WebGL 2, avoiding full-screen FXAA blur. `?quality=high` uses 1.5–1.75× resolution. Terrain and scenery are split into bounded batches for view and shadow culling. Nearby trees use 3D geometry; distant woodland uses an atlas rendered from the same trees. Web builds simplify background rock indices while preserving their textures; locomotive and coach geometry remain unchanged. Four stable local lights avoid shader changes as interiors enter view, and water reflections run at most 30 times per second. `window.__performanceState` exposes measured frame time, resolution and whole-frame draw counts. Frame rate still depends on the client GPU; hosting resources cannot increase its rendering capacity.
+Rendering preserves the cinematic HDR, bloom, ACES tone mapping, 4096-pixel shadow maps and stable 1.5–1.75× rendering resolution. The HDR target is single-sampled: combining its bloom pipeline with multisampling caused black rectangles at Retina resolutions. FXAA runs at the supersampled resolution before the browser displays the image. Distant trees are batched by location, retaining every atlas variant and tree while allowing offscreen woodland to be culled. Terrain and scenery are split into bounded batches for view and shadow culling. Nearby trees use 3D geometry; distant woodland uses an atlas rendered from the same trees. Web builds simplify background rock indices while preserving their textures; locomotive and coach geometry remain unchanged. Four stable local lights avoid shader changes as interiors enter view, and water reflections run at most 30 times per second. `window.__performanceState` exposes measured frame time, resolution and whole-frame draw counts. Frame rate still depends on the client GPU; hosting resources cannot increase its rendering capacity.
+
+With the web preview running and Chrome installed, `npm run check:browser` checks the large Retina viewport for black rectangles, then exercises resize, audio, cab view, pause/resume and seeking. Set `POLAR_URL` to check a deployed site.
 
 Firebase Hosting is configured to publish `dist/` to the `sitemap-polar` site. Build before deploying; never upload the repository root.
 

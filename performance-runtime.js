@@ -1,7 +1,7 @@
-// Multisampling smooths geometry edges without the full-screen FXAA blur.
+// Keep cinematic supersampling stable; never trade detail for fluctuating frame rate.
 // Keep the render resolution stable during playback; quality never oscillates.
-const renderQuality=new URLSearchParams(location.search).get('quality')==='high'?'high':'sharp';
-function nativeRenderRatio(){return renderQuality==='high'?Math.min(1.75,Math.max(devicePixelRatio,1.5)):Math.min(devicePixelRatio||1,1.5);}
+const renderQuality='cinematic';
+function nativeRenderRatio(){return Math.min(Math.max(devicePixelRatio||1,1.5),1.75);}
 let performanceWindowStart=0,performanceFrames=0;
 function resizeRendering(){
  const ratio=nativeRenderRatio();
