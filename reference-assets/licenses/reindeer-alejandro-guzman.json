@@ -1,0 +1,19 @@
+{
+  "title": "3December 8: Reindeer",
+  "author": "Alejandro Guzm\u00e1n (Glifo)",
+  "modelLicense": "CC BY 4.0",
+  "source": "https://sketchfab.com/3d-models/3december-8-reindeer-0e92e5abf0f34444922783a90472073f",
+  "download": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-111/0e92e5abf0f34444922783a90472073f.glb",
+  "sourcePhotograph": {
+    "author": "Alexandre Buisse",
+    "license": "CC BY-SA 3.0",
+    "note": "Photo credit reported by the model author; embedded texture retained."
+  },
+  "adaptations": [
+    "normalised to 1.82 metre antler height",
+    "eight harnessed copies",
+    "procedural leg deformation",
+    "prancing and circling flight"
+  ],
+  "sha256": "d4c426499de970f1743ffcc4c4105321c380a6154bb869c10f37f6f8622d2589"
+}

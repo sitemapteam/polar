@@ -1,0 +1,186 @@
+{
+  "animationCount": 0,
+  "categories": [
+    {
+      "uid": "f825c721edb541dbbc8cd210123616c7",
+      "name": "Architecture",
+      "slug": "architecture",
+      "uri": "https://api.sketchfab.com/v3/categories/f825c721edb541dbbc8cd210123616c7",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/0d6c3fa023a12c3d7aa493c542afd1b8-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/f825c721edb541dbbc8cd210123616c7/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/f825c721edb541dbbc8cd210123616c7/800x450.png"
+        }
+      ]
+    },
+    {
+      "uid": "e56c5de1e9344241909de76c5886f551",
+      "name": "Art & Abstract",
+      "slug": "art-abstract",
+      "uri": "https://api.sketchfab.com/v3/categories/e56c5de1e9344241909de76c5886f551",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/876106eddb2a54aa1391eb2f4db0acb2-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/e56c5de1e9344241909de76c5886f551/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/e56c5de1e9344241909de76c5886f551/800x450.png"
+        }
+      ]
+    }
+  ],
+  "commentCount": 0,
+  "createdAt": "2025-11-21T21:09:22.317046",
+  "embedUrl": "https://sketchfab.com/models/27e811251c9343d7b155d2df6b2d6905/embed",
+  "faceCount": 40482,
+  "isAgeRestricted": false,
+  "license": {
+    "uri": "https://api.sketchfab.com/v3/licenses/322a749bcfa841b29dff1e8a1bb74b0b",
+    "label": "CC Attribution",
+    "fullName": "Creative Commons Attribution",
+    "requirements": "Author must be credited. Commercial use is allowed.",
+    "url": "http://creativecommons.org/licenses/by/4.0/",
+    "slug": "by"
+  },
+  "likeCount": 3,
+  "name": "POLAR EXPRESS HOUSE REMADE",
+  "publishedAt": "2025-11-21T21:35:03.996797",
+  "soundCount": 0,
+  "staffpickedAt": null,
+  "tags": [
+    {
+      "name": "Polar",
+      "slug": "polar",
+      "uri": "https://api.sketchfab.com/v3/tags/polar"
+    },
+    {
+      "name": "expression",
+      "slug": "expression",
+      "uri": "https://api.sketchfab.com/v3/tags/expression"
+    },
+    {
+      "name": "poly",
+      "slug": "poly",
+      "uri": "https://api.sketchfab.com/v3/tags/poly"
+    },
+    {
+      "name": "polyexpress",
+      "slug": "polyexpress",
+      "uri": "https://api.sketchfab.com/v3/tags/polyexpress"
+    },
+    {
+      "name": "polarexpress",
+      "slug": "polarexpress",
+      "uri": "https://api.sketchfab.com/v3/tags/polarexpress"
+    }
+  ],
+  "thumbnails": {
+    "images": [
+      {
+        "uid": "e4e43378912a4b6fa74324b6a39288a4",
+        "width": 1920,
+        "height": 1080,
+        "size": 183906,
+        "url": "https://media.sketchfab.com/models/27e811251c9343d7b155d2df6b2d6905/thumbnails/8e12da89fa8c44949b3d7be09fbd679c/49676bbd0f0542e3bd26ceba60c8cdc7.jpeg"
+      },
+      {
+        "uid": "fc0a45b15a5d4d02aaf88ac5450a6dc4",
+        "width": 1024,
+        "height": 576,
+        "size": 60315,
+        "url": "https://media.sketchfab.com/models/27e811251c9343d7b155d2df6b2d6905/thumbnails/8e12da89fa8c44949b3d7be09fbd679c/735a0853fddc48c98be2166c1341046d.jpeg"
+      },
+      {
+        "uid": "6697fdbb950f4b368e9aa8c6a3cef750",
+        "width": 720,
+        "height": 405,
+        "size": 34269,
+        "url": "https://media.sketchfab.com/models/27e811251c9343d7b155d2df6b2d6905/thumbnails/8e12da89fa8c44949b3d7be09fbd679c/d486871b28a64e82a76b492525c5efae.jpeg"
+      },
+      {
+        "uid": "32347d4ab7884405848fbe2f26f4b2df",
+        "width": 256,
+        "height": 144,
+        "size": 6445,
+        "url": "https://media.sketchfab.com/models/27e811251c9343d7b155d2df6b2d6905/thumbnails/8e12da89fa8c44949b3d7be09fbd679c/5880eef92bc24e58b9671247f9d37d4d.jpeg"
+      },
+      {
+        "uid": "4d4ce0f65738475a80cbe0b80c8f7c07",
+        "width": 64,
+        "height": 36,
+        "size": 1301,
+        "url": "https://media.sketchfab.com/models/27e811251c9343d7b155d2df6b2d6905/thumbnails/8e12da89fa8c44949b3d7be09fbd679c/d99ccc1643d342a19fe80eabf28a2a5b.jpeg"
+      }
+    ]
+  },
+  "uid": "27e811251c9343d7b155d2df6b2d6905",
+  "uri": "https://api.sketchfab.com/v3/models/27e811251c9343d7b155d2df6b2d6905",
+  "user": {
+    "uid": "e32007f176084e0b8252bb3f8a0a0c23",
+    "username": "jayexethemodeler",
+    "displayName": "Jayexe the accurate model creator",
+    "account": "basic",
+    "profileUrl": "https://sketchfab.com/jayexethemodeler",
+    "avatar": {
+      "uid": "a20ac2b1d0be428cb66e56bf58545e16",
+      "uri": "https://api.sketchfab.com/v3/avatars/a20ac2b1d0be428cb66e56bf58545e16",
+      "images": [
+        {
+          "width": 32,
+          "height": 32,
+          "size": 2370,
+          "url": "https://media.sketchfab.com/avatars/a20ac2b1d0be428cb66e56bf58545e16/39f4f1c20c9a4600b6092702d5342408.png"
+        },
+        {
+          "width": 48,
+          "height": 48,
+          "size": 4578,
+          "url": "https://media.sketchfab.com/avatars/a20ac2b1d0be428cb66e56bf58545e16/74b4fe1608954a0292a7dbd18a8d3b1e.png"
+        },
+        {
+          "width": 90,
+          "height": 90,
+          "size": 13250,
+          "url": "https://media.sketchfab.com/avatars/a20ac2b1d0be428cb66e56bf58545e16/be7e22f2001c468ea804d416eee5f849.png"
+        },
+        {
+          "width": 100,
+          "height": 100,
+          "size": 15962,
+          "url": "https://media.sketchfab.com/avatars/a20ac2b1d0be428cb66e56bf58545e16/084691804b204aa2a971bb1b710d4edc.png"
+        }
+      ]
+    },
+    "uri": "https://api.sketchfab.com/v3/users/e32007f176084e0b8252bb3f8a0a0c23"
+  },
+  "vertexCount": 27601,
+  "viewCount": 451,
+  "viewerUrl": "https://sketchfab.com/3d-models/polar-express-house-remade-27e811251c9343d7b155d2df6b2d6905",
+  "isDownloadable": true,
+  "isProtected": false,
+  "description": "POLAR EXPRESS HOUSE REMAKE",
+  "price": null,
+  "downloadCount": 33,
+  "editorUrl": "https://sketchfab.com/models/27e811251c9343d7b155d2df6b2d6905/edit",
+  "status": {
+    "warning": {},
+    "processing": "SUCCEEDED"
+  },
+  "source": "website",
+  "hasCommentsDisabled": false,
+  "updatedAt": "2025-11-22T07:28:26.703172",
+  "pbrType": null,
+  "textureCount": 35,
+  "materialCount": 35
+}

@@ -1,0 +1,206 @@
+{
+  "animationCount": 3,
+  "categories": [
+    {
+      "uid": "ed9e048550b2478eb1ab2faaba192832",
+      "name": "Animals & Pets",
+      "slug": "animals-pets",
+      "uri": "https://api.sketchfab.com/v3/categories/ed9e048550b2478eb1ab2faaba192832",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/926733e187aa5a479aedd2581bffb3ea-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/ed9e048550b2478eb1ab2faaba192832/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/ed9e048550b2478eb1ab2faaba192832/800x450.png"
+        }
+      ]
+    },
+    {
+      "uid": "2d643ff5ed03405b9c34ecdffff9d8d8",
+      "name": "Characters & Creatures",
+      "slug": "characters-creatures",
+      "uri": "https://api.sketchfab.com/v3/categories/2d643ff5ed03405b9c34ecdffff9d8d8",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/f778c3dbe6efa00a06c257762c0e27ef-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/2d643ff5ed03405b9c34ecdffff9d8d8/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/2d643ff5ed03405b9c34ecdffff9d8d8/800x450.png"
+        }
+      ]
+    }
+  ],
+  "commentCount": 0,
+  "createdAt": "2024-11-12T10:14:49.765096",
+  "embedUrl": "https://sketchfab.com/models/e6463a28261646fe98079414901f8d6b/embed",
+  "faceCount": 870,
+  "isAgeRestricted": false,
+  "license": {
+    "uri": "https://api.sketchfab.com/v3/licenses/322a749bcfa841b29dff1e8a1bb74b0b",
+    "label": "CC Attribution",
+    "fullName": "Creative Commons Attribution",
+    "requirements": "Author must be credited. Commercial use is allowed.",
+    "url": "http://creativecommons.org/licenses/by/4.0/",
+    "slug": "by"
+  },
+  "likeCount": 4,
+  "name": "Low-poly xmas characters",
+  "publishedAt": "2024-11-12T10:30:45.991956",
+  "soundCount": 0,
+  "staffpickedAt": null,
+  "tags": [
+    {
+      "name": "santa",
+      "slug": "santa",
+      "uri": "https://api.sketchfab.com/v3/tags/santa"
+    },
+    {
+      "name": "elf",
+      "slug": "elf",
+      "uri": "https://api.sketchfab.com/v3/tags/elf"
+    },
+    {
+      "name": "xmas",
+      "slug": "xmas",
+      "uri": "https://api.sketchfab.com/v3/tags/xmas"
+    },
+    {
+      "name": "christmas",
+      "slug": "christmas",
+      "uri": "https://api.sketchfab.com/v3/tags/christmas"
+    },
+    {
+      "name": "rudolph",
+      "slug": "rudolph",
+      "uri": "https://api.sketchfab.com/v3/tags/rudolph"
+    },
+    {
+      "name": "santaclaus",
+      "slug": "santaclaus",
+      "uri": "https://api.sketchfab.com/v3/tags/santaclaus"
+    },
+    {
+      "name": "Raindeer",
+      "slug": "raindeer",
+      "uri": "https://api.sketchfab.com/v3/tags/raindeer"
+    },
+    {
+      "name": "low-poly",
+      "slug": "low-poly",
+      "uri": "https://api.sketchfab.com/v3/tags/low-poly"
+    },
+    {
+      "name": "lowpoly",
+      "slug": "lowpoly",
+      "uri": "https://api.sketchfab.com/v3/tags/lowpoly"
+    }
+  ],
+  "thumbnails": {
+    "images": [
+      {
+        "uid": "f93e81c0eda94cd4a20e52520d7e4310",
+        "width": 1920,
+        "height": 1080,
+        "size": 388014,
+        "url": "https://media.sketchfab.com/models/e6463a28261646fe98079414901f8d6b/thumbnails/d937ef73769843e9a01e3936012c0b7e/08005ba06db944d58cfe2406834209fe.jpeg"
+      },
+      {
+        "uid": "2a2c9c56e3854f6e8f83ad77c99e63f3",
+        "width": 1024,
+        "height": 576,
+        "size": 45266,
+        "url": "https://media.sketchfab.com/models/e6463a28261646fe98079414901f8d6b/thumbnails/d937ef73769843e9a01e3936012c0b7e/018917f2f8054d90b123e9eca729916b.jpeg"
+      },
+      {
+        "uid": "810aea77fd824c32bcb0c393d8f3be99",
+        "width": 720,
+        "height": 405,
+        "size": 27317,
+        "url": "https://media.sketchfab.com/models/e6463a28261646fe98079414901f8d6b/thumbnails/d937ef73769843e9a01e3936012c0b7e/f5f04f4244924e7cbf943480640a9759.jpeg"
+      },
+      {
+        "uid": "dc4a45e0f8124fc7a3d369508f4600d8",
+        "width": 256,
+        "height": 144,
+        "size": 6661,
+        "url": "https://media.sketchfab.com/models/e6463a28261646fe98079414901f8d6b/thumbnails/d937ef73769843e9a01e3936012c0b7e/582d86dbd62a4bcfbd467161f05b6362.jpeg"
+      },
+      {
+        "uid": "81d144fbd3fc4b08bb6791c413bb640e",
+        "width": 64,
+        "height": 36,
+        "size": 1395,
+        "url": "https://media.sketchfab.com/models/e6463a28261646fe98079414901f8d6b/thumbnails/d937ef73769843e9a01e3936012c0b7e/6aa26f10bdff48aab1bd7ebe75bbcc16.jpeg"
+      }
+    ]
+  },
+  "uid": "e6463a28261646fe98079414901f8d6b",
+  "uri": "https://api.sketchfab.com/v3/models/e6463a28261646fe98079414901f8d6b",
+  "user": {
+    "uid": "361fc22c0a364de69708a525b7e973c7",
+    "username": "spark-games",
+    "displayName": "Spark Games",
+    "account": "basic",
+    "profileUrl": "https://sketchfab.com/spark-games",
+    "avatar": {
+      "uid": "c582d0bfd03641d3a04efe2a98429697",
+      "uri": "https://api.sketchfab.com/v3/avatars/c582d0bfd03641d3a04efe2a98429697",
+      "images": [
+        {
+          "width": 32,
+          "height": 32,
+          "size": 2272,
+          "url": "https://media.sketchfab.com/avatars/c582d0bfd03641d3a04efe2a98429697/90acc9015a134aee9a753b9d30a1e533.png"
+        },
+        {
+          "width": 48,
+          "height": 48,
+          "size": 4333,
+          "url": "https://media.sketchfab.com/avatars/c582d0bfd03641d3a04efe2a98429697/c7b126963d7d4b208b5a11258d4381d7.png"
+        },
+        {
+          "width": 90,
+          "height": 90,
+          "size": 12931,
+          "url": "https://media.sketchfab.com/avatars/c582d0bfd03641d3a04efe2a98429697/20c1f4692fb34ac89fa0d70919371949.png"
+        },
+        {
+          "width": 100,
+          "height": 100,
+          "size": 15650,
+          "url": "https://media.sketchfab.com/avatars/c582d0bfd03641d3a04efe2a98429697/00c2941334494b7da1b930bb4056176a.png"
+        }
+      ]
+    },
+    "uri": "https://api.sketchfab.com/v3/users/361fc22c0a364de69708a525b7e973c7"
+  },
+  "vertexCount": 524,
+  "viewCount": 253,
+  "viewerUrl": "https://sketchfab.com/3d-models/low-poly-xmas-characters-e6463a28261646fe98079414901f8d6b",
+  "isDownloadable": true,
+  "isProtected": false,
+  "description": "Animated Low-poly xmas characters pack",
+  "price": null,
+  "downloadCount": 80,
+  "editorUrl": "https://sketchfab.com/models/e6463a28261646fe98079414901f8d6b/edit",
+  "status": {
+    "warning": {},
+    "processing": "SUCCEEDED"
+  },
+  "source": "website",
+  "hasCommentsDisabled": false,
+  "updatedAt": "2024-11-27T14:34:24.447507",
+  "pbrType": null,
+  "textureCount": 3,
+  "materialCount": 4
+}

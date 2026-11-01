@@ -1,0 +1,7 @@
+// Vertex deformation shares a world-space gust phase across independently rotated instances.
+function applyWinterWind(shader,shrub=false){shader.uniforms.winterTime=winterWind.time;shader.uniforms.winterStrength=winterWind.strength;shader.uniforms.winterDirection=winterWind.direction;shader.vertexShader='uniform float winterTime;uniform float winterStrength;uniform vec2 winterDirection;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>',`#include <begin_vertex>
+vec3 windAnchor=vec3(0.);vec2 windLocal=winterDirection;
+#ifdef USE_INSTANCING
+windAnchor=(modelMatrix*instanceMatrix*vec4(0.,0.,0.,1.)).xyz;windLocal=vec2(dot(normalize(instanceMatrix[0].xz),winterDirection),dot(normalize(instanceMatrix[2].xz),winterDirection));
+#endif
+float windPhase=winterTime*.72-windAnchor.x*.006-windAnchor.z*.004;float windGust=.62+.25*sin(winterTime*.23-windAnchor.x*.0017-windAnchor.z*.0011)+.13*sin(winterTime*.71+windAnchor.x*.004);float windHeight=clamp(position.y,0.,${shrub?'2.':'1.'});float windBend=pow(windHeight,${shrub?'1.6':'2.2'})*(sin(windPhase)*.65+sin(windPhase*1.73+1.4)*.35)*windGust*winterStrength*${shrub?'.075':'.040'};transformed.xz+=windLocal*windBend;float windFlutter=sin(winterTime*2.4+position.y*29.+position.x*43.+windAnchor.x)*windHeight*${shrub?'.012':'.004'}*winterStrength;transformed.x+=windFlutter;transformed.z+=windFlutter*.53;`);}

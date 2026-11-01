@@ -1,0 +1,42 @@
+# Restored runtime inputs
+/alpine-rock-data.js
+/cliff-data.js
+/crowd-data.js
+/forest-data.js
+/gear-data.js
+/geography-data.js
+/house-scan-data.js
+/polar-study/new_polar-reference.mp3
+/postfx-bundle.js
+/reference-assets/materials/plank-siding-color-2k.jpg
+/reference-assets/materials/plank-siding-normal-2k.jpg
+/reference-assets/materials/rock-face-03-color-2k.jpg
+/reference-assets/materials/roof-slates-color-4k.jpg
+/reference-assets/materials/roof-slates-normal-2k.jpg
+/reference-assets/materials/snow-field-aerial-color-4k.jpg
+/reference-assets/models/christmas-tree-marc-sawyer.glb
+/reference-assets/models/polar-characters.glb
+/reference-assets/models/polar-coaches.glb
+/reference-assets/models/polar-detailed-coach.glb
+/reference-assets/models/polar-house.glb
+/reference-assets/models/polar-locomotive.glb
+/reference-assets/models/reindeer-alejandro-guzman.glb
+/reference-assets/models/santa-standing-bharath.glb
+/rock-diffuse-4k.jpg
+/rock-normal-4k.jpg
+/sierra-28-whistle.mp3
+/silver-sleigh-bell.wav
+/snow-diffuse-4k.jpg
+/snow-normal-4k.jpg
+/steam-exhaust-bark.wav
+/steam-running.mp3
+/terrain-cache-data.js
+/three.min.js
+# Generated editions and bundles
+/Big Boy*.html
+/polar-assets.js
+/winter-assets.js
+/model-data.js
+/*.tmp
+/node_modules/
+/.DS_Store

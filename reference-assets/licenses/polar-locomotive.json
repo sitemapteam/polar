@@ -1,0 +1,167 @@
+{
+  "animationCount": 0,
+  "categories": [
+    {
+      "uid": "22a2f677efad4d7bbca5ad45f9b5868e",
+      "name": "Cars & Vehicles",
+      "slug": "cars-vehicles",
+      "uri": "https://api.sketchfab.com/v3/categories/22a2f677efad4d7bbca5ad45f9b5868e",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/45dd0cc0860ac57fcd63bde1cc3f2b7c-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/22a2f677efad4d7bbca5ad45f9b5868e/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/22a2f677efad4d7bbca5ad45f9b5868e/800x450.png"
+        }
+      ]
+    }
+  ],
+  "commentCount": 11,
+  "createdAt": "2025-12-25T16:04:37.511394",
+  "embedUrl": "https://sketchfab.com/models/ab72c9db48e94ff29d24f8673dcf0f36/embed",
+  "faceCount": 158522,
+  "isAgeRestricted": false,
+  "license": {
+    "uri": "https://api.sketchfab.com/v3/licenses/322a749bcfa841b29dff1e8a1bb74b0b",
+    "label": "CC Attribution",
+    "fullName": "Creative Commons Attribution",
+    "requirements": "Author must be credited. Commercial use is allowed.",
+    "url": "http://creativecommons.org/licenses/by/4.0/",
+    "slug": "by"
+  },
+  "likeCount": 79,
+  "name": "The Polar Express Locomotive",
+  "publishedAt": "2025-12-25T19:47:48.963651",
+  "soundCount": 0,
+  "staffpickedAt": null,
+  "tags": [
+    {
+      "name": "train",
+      "slug": "train",
+      "uri": "https://api.sketchfab.com/v3/tags/train"
+    },
+    {
+      "name": "locomotive",
+      "slug": "locomotive",
+      "uri": "https://api.sketchfab.com/v3/tags/locomotive"
+    },
+    {
+      "name": "christmas",
+      "slug": "christmas",
+      "uri": "https://api.sketchfab.com/v3/tags/christmas"
+    },
+    {
+      "name": "christmastrain",
+      "slug": "christmastrain",
+      "uri": "https://api.sketchfab.com/v3/tags/christmastrain"
+    },
+    {
+      "name": "polarexpress",
+      "slug": "polarexpress",
+      "uri": "https://api.sketchfab.com/v3/tags/polarexpress"
+    }
+  ],
+  "thumbnails": {
+    "images": [
+      {
+        "uid": "81c68f1d5cec46a68af03b8a378b930f",
+        "width": 1920,
+        "height": 1080,
+        "size": 180727,
+        "url": "https://media.sketchfab.com/models/ab72c9db48e94ff29d24f8673dcf0f36/thumbnails/b07ccdf27f2942fc991544f769a167c5/2f4138d9f308429e9eb11dbcc1057f66.jpeg"
+      },
+      {
+        "uid": "28faeb37d8954518806c3de0851e484d",
+        "width": 1024,
+        "height": 576,
+        "size": 54417,
+        "url": "https://media.sketchfab.com/models/ab72c9db48e94ff29d24f8673dcf0f36/thumbnails/b07ccdf27f2942fc991544f769a167c5/ac0e6b21cef34eb18c2fecb95cb98ddb.jpeg"
+      },
+      {
+        "uid": "9d94f4a9643247a89b9e6434f5db9bc3",
+        "width": 720,
+        "height": 405,
+        "size": 30780,
+        "url": "https://media.sketchfab.com/models/ab72c9db48e94ff29d24f8673dcf0f36/thumbnails/b07ccdf27f2942fc991544f769a167c5/708c6745ee2347fe97c5ec61955d468f.jpeg"
+      },
+      {
+        "uid": "f0a6f5d85e89429c9c8ca02de8df1095",
+        "width": 256,
+        "height": 144,
+        "size": 6220,
+        "url": "https://media.sketchfab.com/models/ab72c9db48e94ff29d24f8673dcf0f36/thumbnails/b07ccdf27f2942fc991544f769a167c5/2f8861cb422b4b7ca4f16cd882068073.jpeg"
+      },
+      {
+        "uid": "b0e10462bcbf492d866d53ce835fc867",
+        "width": 64,
+        "height": 36,
+        "size": 1265,
+        "url": "https://media.sketchfab.com/models/ab72c9db48e94ff29d24f8673dcf0f36/thumbnails/b07ccdf27f2942fc991544f769a167c5/3805333406e04bbaa0727fe40f0dc8b5.jpeg"
+      }
+    ]
+  },
+  "uid": "ab72c9db48e94ff29d24f8673dcf0f36",
+  "uri": "https://api.sketchfab.com/v3/models/ab72c9db48e94ff29d24f8673dcf0f36",
+  "user": {
+    "uid": "696374c8daa14644bf7f69427a35a474",
+    "username": "planeharmony389",
+    "displayName": "PlaneHarmony389",
+    "account": "basic",
+    "profileUrl": "https://sketchfab.com/planeharmony389",
+    "avatar": {
+      "uid": "d50105ce51d34a09a5cc2ebee8cd1b9e",
+      "uri": "https://api.sketchfab.com/v3/avatars/d50105ce51d34a09a5cc2ebee8cd1b9e",
+      "images": [
+        {
+          "width": 32,
+          "height": 32,
+          "size": 1519,
+          "url": "https://media.sketchfab.com/avatars/d50105ce51d34a09a5cc2ebee8cd1b9e/dc14cb6d0f54438f80f03931ddda3b5c.png"
+        },
+        {
+          "width": 48,
+          "height": 48,
+          "size": 3036,
+          "url": "https://media.sketchfab.com/avatars/d50105ce51d34a09a5cc2ebee8cd1b9e/92aa872f6412457681ce769dc99fcc69.png"
+        },
+        {
+          "width": 90,
+          "height": 90,
+          "size": 9029,
+          "url": "https://media.sketchfab.com/avatars/d50105ce51d34a09a5cc2ebee8cd1b9e/df7ee76b17cf4caaa0f656cb7925b3b7.png"
+        },
+        {
+          "width": 100,
+          "height": 100,
+          "size": 10791,
+          "url": "https://media.sketchfab.com/avatars/d50105ce51d34a09a5cc2ebee8cd1b9e/92ef56a9cfcd4dfaabe38333954f4508.png"
+        }
+      ]
+    },
+    "uri": "https://api.sketchfab.com/v3/users/696374c8daa14644bf7f69427a35a474"
+  },
+  "vertexCount": 96486,
+  "viewCount": 9855,
+  "viewerUrl": "https://sketchfab.com/3d-models/the-polar-express-locomotive-ab72c9db48e94ff29d24f8673dcf0f36",
+  "isDownloadable": true,
+  "isProtected": false,
+  "description": "Merry Christmas!                      \nAnd to Celebrate here's a decent model of The Polar Express for Everyone!\nit may not be 100% accurate but I tried.\n\nIncludes: \n-Locomotive and Tender\n-Variants on the Blender file\n-Obj and Fbx files for any modeling software\n\nEnjoy this took a while to make.",
+  "price": null,
+  "downloadCount": 989,
+  "editorUrl": "https://sketchfab.com/models/ab72c9db48e94ff29d24f8673dcf0f36/edit",
+  "status": {
+    "warning": {},
+    "processing": "SUCCEEDED"
+  },
+  "source": "website",
+  "hasCommentsDisabled": false,
+  "updatedAt": "2025-12-25T19:47:49.086053",
+  "pbrType": null,
+  "textureCount": 7,
+  "materialCount": 21
+}

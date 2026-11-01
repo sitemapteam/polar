@@ -1,0 +1,35 @@
+// Two-stack exhaust: fast translucent combustion core inside a cold, condensing steam plume.
+const smokeCanvas=document.createElement('canvas');smokeCanvas.width=smokeCanvas.height=256;const sgc=smokeCanvas.getContext('2d'),pixels=sgc.createImageData(256,256);
+function vaporHash(x,y){const n=Math.sin(x*127.1+y*311.7)*43758.5453;return n-Math.floor(n);}
+function vaporField(x,y){const ix=Math.floor(x),iy=Math.floor(y),fx=x-ix,fy=y-iy,u=fx*fx*(3-2*fx),w=fy*fy*(3-2*fy);return T.MathUtils.lerp(T.MathUtils.lerp(vaporHash(ix,iy),vaporHash(ix+1,iy),u),T.MathUtils.lerp(vaporHash(ix,iy+1),vaporHash(ix+1,iy+1),u),w);}
+function vaporNoise(x,y){return .55*vaporField(x*3,y*3)+.28*vaporField(x*7+8,y*7)+.12*vaporField(x*17,y*17+5)+.05*vaporField(x*37,y*37);}
+for(let y=0;y<256;y++)for(let x=0;x<256;x++){const dx=(x-128)/128,dy=(y-128)/128,r=Math.hypot(dx,dy),n=vaporNoise(dx*2+4,dy*2+8),a=Math.pow(Math.max(0,1-r+(n-.5)*.25),1.35)*(.3+n*1.3);const i=(y*256+x)*4;pixels.data[i]=pixels.data[i+1]=pixels.data[i+2]=255;pixels.data[i+3]=Math.round(a*255);}sgc.putImageData(pixels,0,0);const vaporTexture=new T.CanvasTexture(smokeCanvas);
+const MAX_VAPOR=2200,vapors=Array.from({length:MAX_VAPOR},()=>({pos:v(0,-1000,0),vel:v(0,0,0),age:99,life:1,size:1,rotation:0,type:0,load:0}));let vaporCursor=0,exhaustClock=0,cylinderClock=0,safetyClock=0,whistleSteamUntil=-1;
+const vg=new T.InstancedBufferGeometry(),quad=new T.PlaneGeometry(1,1);vg.index=quad.index;vg.attributes.position=quad.attributes.position;vg.attributes.uv=quad.attributes.uv;
+const vp=new Float32Array(MAX_VAPOR*3),vc=new Float32Array(MAX_VAPOR*3),vs=new Float32Array(MAX_VAPOR),vo=new Float32Array(MAX_VAPOR),vr=new Float32Array(MAX_VAPOR);for(const [name,array,size] of [['center',vp,3],['vColor',vc,3],['vSize',vs,1],['vAlpha',vo,1],['vRotation',vr,1]])vg.setAttribute(name,new T.InstancedBufferAttribute(array,size).setUsage(T.DynamicDrawUsage));
+const vaporMat=new T.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{map:{value:vaporTexture},fogColor:{value:scene.fog.color},fogDensity:{value:scene.fog.density}},vertexShader:`attribute vec3 center;attribute vec3 vColor;attribute float vSize;attribute float vAlpha;attribute float vRotation;varying vec2 tex;varying vec3 c;varying float alpha;varying float depth;void main(){vec4 mv=modelViewMatrix*vec4(center,1.);float co=cos(vRotation),si=sin(vRotation);mv.xy+=mat2(co,-si,si,co)*position.xy*vSize;gl_Position=projectionMatrix*mv;tex=uv;c=vColor;alpha=vAlpha;depth=-mv.z;}`,fragmentShader:`uniform sampler2D map;uniform vec3 fogColor;uniform float fogDensity;varying vec2 tex;varying vec3 c;varying float alpha;varying float depth;void main(){float a=texture2D(map,tex).a*alpha;if(a<.003)discard;float f=1.-exp(-fogDensity*fogDensity*depth*depth);gl_FragColor=vec4(mix(c,fogColor,f),a);
+#include <tonemapping_fragment>
+#include <colorspace_fragment>
+}`});const vaporCloud=new T.Mesh(vg,vaporMat);vaporCloud.frustumCulled=false;vaporCloud.renderOrder=5;scene.add(vaporCloud);
+// Centers measured against the two exhaust passages in the imported stack casing.
+const stackOutlets=[4.45],stackHeight=4.647,ambientWind=v(.65,0,.18);
+function emitVapor(local,type,age=0){
+ const p=vapors[vaporCursor++%MAX_VAPOR],tangent=routeCurve.getTangentAt(clamp(angle/routeLength,0,1)),speedMS=currentSpeed*.44704,stack=type===0||type===3,load=locomotiveEffort().load,pulse=1+(.14+load*.22)*Math.sin(distance/polarAxles.find(w=>w.kind==='driving').radius*4+(local.x>7?Math.PI*.4:0));
+ p.pos.copy(type===1&&local.x>5?frontEngine.localToWorld(local.clone().sub(v(frontEngine.position.x,0,0))):train.localToWorld(local));p.type=type;p.age=age;p.load=load;p.life=type===0?2.5+load*1.7+rand():type===3?8+rand()*3:2.5+rand()*2;p.size=stack?.42+load*.22+rand()*.18:.24+rand()*.18;p.rotation=rand()*TAU;
+ p.vel.copy(tangent).multiplyScalar(speedMS).add(v((rand()-.5)*.35,stack?(2.5+load*4+rand()*.8)*pulse:type===1?.35+rand()*.5:3,(rand()-.5)*.35));
+ if(type===1)p.vel.addScaledVector(v(-tangent.z,0,tangent.x),Math.sign(local.z)*(3+rand()*2));
+ if(age>0){const drag=stack?.72:.3,decay=Math.exp(-drag*age),travel=(1-decay)/drag;p.pos.addScaledVector(p.vel,travel).addScaledVector(ambientWind,age-travel).addScaledVector(tangent,-speedMS*age);p.pos.y+=stack?1.1*(age-travel):0;p.vel.lerp(stack?v(ambientWind.x,1.1,ambientWind.z):ambientWind,1-decay);}
+}
+function updateSteam(dt){if(running){
+ ambientWind.set(winterWind.direction.value.x*winterWind.strength.value*1.2,.05,winterWind.direction.value.y*winterWind.strength.value*1.2);const effort=locomotiveEffort(),emissionInterval=T.MathUtils.lerp(.044,.016,effort.load);exhaustClock+=dt;cylinderClock+=dt;safetyClock+=dt;
+ while(exhaustClock>emissionInterval){const age=exhaustClock-emissionInterval;for(const x of stackOutlets){emitVapor(v(x+(rand()-.5)*.12,stackHeight-.035,(rand()-.5)*.12),0,age);emitVapor(v(x+(rand()-.5)*.14,stackHeight+.04,(rand()-.5)*.14),3,age);}exhaustClock-=emissionInterval;}
+ if(cylinderClock>.085){if((simTime>10&&simTime<23)||simTime%65<4||(effort.load>.78&&Math.sin(distance/polarAxles.find(w=>w.kind==='driving').radius*4)>.55))for(const x of [5.5])for(const side of [-1,1])emitVapor(v(x,.65,side*1.272),1);if(simTime<whistleSteamUntil)emitVapor(v(-1.5,4.9,.25),2);cylinderClock=0;}
+ if(safetyClock>.22){if(simTime%45<2.5)emitVapor(v(-5,4.9,0),2);safetyClock=0;}
+ for(const p of vapors){p.age+=dt;if(p.age>=p.life)continue;const stack=p.type===0||p.type===3,entrain=1-Math.exp(-dt*(stack?.72:.3)),eddy=Math.min(p.age*.17,.8);p.vel.x+=(ambientWind.x-p.vel.x)*entrain+Math.sin(p.age*1.3+p.rotation)*dt*eddy;p.vel.z+=(ambientWind.z-p.vel.z)*entrain+Math.cos(p.age*1.1+p.rotation)*dt*eddy;p.vel.y+=((stack?1.1:.3)-p.vel.y)*entrain;p.pos.addScaledVector(p.vel,dt);p.rotation+=dt*(p.type===3?.065:.035);}
+ }
+ const forward=camera.getWorldDirection(v(0,0,0)),live=vapors.filter(p=>p.age<p.life);for(const p of live)p.depth=p.pos.clone().sub(camera.position).dot(forward);live.sort((a,b)=>b.depth-a.depth);
+ let i=0,exhaust=0,steam=0;for(const p of live){const t=p.age/p.life;p.pos.toArray(vp,i*3);const light=p.type===0?.30-p.load*.23+.24*t:p.type===3?.78+.15*Math.min(1,p.age/2)-p.load*.78*(1-T.MathUtils.smoothstep(p.age,3,7)):.95;vc[i*3]=light*.98;vc[i*3+1]=light;vc[i*3+2]=light*1.015;
+ vs[i]=p.size+p.age*(p.type===0?.7+p.load*.65:p.type===3?1.12+p.load*.65:1.15);const formation=p.type===3?clamp((p.age-.18)/.5,0,1):clamp(p.age/.06+.4,0,1);vo[i]=(p.type===0?.24+p.load*.30:p.type===3?.46+p.load*.25:.7)*formation*Math.pow(1-t,1.4);vr[i]=p.rotation;i++;if(p.type===0||p.type===3)exhaust++;else steam++;}
+ vg.instanceCount=i;for(const name of ['center','vColor','vSize','vAlpha','vRotation'])vg.attributes[name].needsUpdate=true;window.__steamState={exhaust,steam,particles:i,load:locomotiveEffort().load,grade:locomotiveEffort().grade,separateEmitters:true,stackLayers:2,stackOutlets:stackOutlets.map(x=>[x,stackHeight,0]),positionSample:live.slice(0,4).map(p=>p.pos.toArray())};
+}
+/* SNOWFALL_RUNTIME */

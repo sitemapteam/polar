@@ -1,0 +1,10 @@
+{
+  "title": "Realistic Polar Express Coach (W/ Minor Updates)",
+  "author": "Maritime Opossum",
+  "url": "https://sketchfab.com/3d-models/realistic-polar-express-coach-w-minor-updates-8b914a4d14544e7d8e0f5ea3db4eff5b",
+  "license": "CC BY 4.0",
+  "originalGLB": "reference-assets/models/polar-detailed-coach.glb",
+  "bytes": 30298216,
+  "sha256": "e7c8b7791f9d5332f7efdde94ccd0774f78f307d5174016ee4d04dd4c9771d84",
+  "adaptations": "Interior meshes extracted, scaled and lit within existing passenger cars. Original downloaded GLB retained unchanged."
+}

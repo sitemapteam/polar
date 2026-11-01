@@ -1,0 +1,152 @@
+{
+  "animationCount": 0,
+  "categories": [
+    {
+      "uid": "86f23935367b4a1f9647c8a20e03d716",
+      "name": "Cultural Heritage & History",
+      "slug": "cultural-heritage-history",
+      "uri": "https://api.sketchfab.com/v3/categories/86f23935367b4a1f9647c8a20e03d716",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/bb22d75450272105e64c47756c323f1f-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/86f23935367b4a1f9647c8a20e03d716/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/86f23935367b4a1f9647c8a20e03d716/800x450.png"
+        }
+      ]
+    }
+  ],
+  "commentCount": 3,
+  "createdAt": "2018-05-17T18:18:11.784397",
+  "embedUrl": "https://sketchfab.com/models/6536a360615545b5a42cf6e4a4eebfc2/embed",
+  "faceCount": 498402,
+  "isAgeRestricted": false,
+  "license": {
+    "uri": "https://api.sketchfab.com/v3/licenses/322a749bcfa841b29dff1e8a1bb74b0b",
+    "label": "CC Attribution",
+    "fullName": "Creative Commons Attribution",
+    "requirements": "Author must be credited. Commercial use is allowed.",
+    "url": "http://creativecommons.org/licenses/by/4.0/",
+    "slug": "by"
+  },
+  "likeCount": 90,
+  "name": "Cabin, Kjone fra Karlsrud, Norsk Folkemuseum",
+  "publishedAt": "2018-05-17T18:58:39.985075",
+  "soundCount": 0,
+  "staffpickedAt": null,
+  "tags": [
+    {
+      "name": "cabin",
+      "slug": "cabin",
+      "uri": "https://api.sketchfab.com/v3/tags/cabin"
+    },
+    {
+      "name": "scan",
+      "slug": "scan",
+      "uri": "https://api.sketchfab.com/v3/tags/scan"
+    }
+  ],
+  "thumbnails": {
+    "images": [
+      {
+        "uid": "04c90be8665d4013a775a1771e2e4f62",
+        "width": 1920,
+        "height": 1080,
+        "size": 695052,
+        "url": "https://media.sketchfab.com/models/6536a360615545b5a42cf6e4a4eebfc2/thumbnails/68f400fa149a4d8cad542e67bdae47d7/977633c521804703a714b0316f99974c.jpeg"
+      },
+      {
+        "uid": "bf3861504f04439381bd2a74bc3b44c7",
+        "width": 1024,
+        "height": 576,
+        "size": 135595,
+        "url": "https://media.sketchfab.com/models/6536a360615545b5a42cf6e4a4eebfc2/thumbnails/68f400fa149a4d8cad542e67bdae47d7/854a0b94171c4781b31da51434dd1f9e.jpeg"
+      },
+      {
+        "uid": "255459679eee400eb6512fd8ec80f49c",
+        "width": 720,
+        "height": 405,
+        "size": 66089,
+        "url": "https://media.sketchfab.com/models/6536a360615545b5a42cf6e4a4eebfc2/thumbnails/68f400fa149a4d8cad542e67bdae47d7/8555bb8fdfd24861874f1aac700148fa.jpeg"
+      },
+      {
+        "uid": "1332970ec6a34c04aa9e50e84d9d5503",
+        "width": 256,
+        "height": 144,
+        "size": 8984,
+        "url": "https://media.sketchfab.com/models/6536a360615545b5a42cf6e4a4eebfc2/thumbnails/68f400fa149a4d8cad542e67bdae47d7/d4d51a4271b844db9704834d3f7fc9be.jpeg"
+      },
+      {
+        "uid": "02bba7eab89f44ba89b291067794b0fa",
+        "width": 64,
+        "height": 36,
+        "size": 1106,
+        "url": "https://media.sketchfab.com/models/6536a360615545b5a42cf6e4a4eebfc2/thumbnails/68f400fa149a4d8cad542e67bdae47d7/4e167215aa344499a375fd5e0c95b03c.jpeg"
+      }
+    ]
+  },
+  "uid": "6536a360615545b5a42cf6e4a4eebfc2",
+  "uri": "https://api.sketchfab.com/v3/models/6536a360615545b5a42cf6e4a4eebfc2",
+  "user": {
+    "uid": "6160a3f1257d48e98b454a701981727a",
+    "username": "johngreenstone",
+    "displayName": "Epic_Tree_Store",
+    "account": "basic",
+    "profileUrl": "https://sketchfab.com/johngreenstone",
+    "avatar": {
+      "uid": "96547df4256f4120956fde05de6541f8",
+      "uri": "https://api.sketchfab.com/v3/avatars/96547df4256f4120956fde05de6541f8",
+      "images": [
+        {
+          "width": 32,
+          "height": 32,
+          "size": 646,
+          "url": "https://media.sketchfab.com/avatars/96547df4256f4120956fde05de6541f8/0e116509863644d5b7eca9a88225c1ce.jpeg"
+        },
+        {
+          "width": 48,
+          "height": 48,
+          "size": 984,
+          "url": "https://media.sketchfab.com/avatars/96547df4256f4120956fde05de6541f8/163e988058df4f6f904b0e1961eed836.jpeg"
+        },
+        {
+          "width": 90,
+          "height": 90,
+          "size": 2213,
+          "url": "https://media.sketchfab.com/avatars/96547df4256f4120956fde05de6541f8/345a01cd1c57474c83c338fa03363502.jpeg"
+        },
+        {
+          "width": 100,
+          "height": 100,
+          "size": 2556,
+          "url": "https://media.sketchfab.com/avatars/96547df4256f4120956fde05de6541f8/3dd325c012bd4cc58ad7e986e8810ccb.jpeg"
+        }
+      ]
+    },
+    "uri": "https://api.sketchfab.com/v3/users/6160a3f1257d48e98b454a701981727a"
+  },
+  "vertexCount": 249451,
+  "viewCount": 2768,
+  "viewerUrl": "https://sketchfab.com/3d-models/cabin-kjone-fra-karlsrud-norsk-folkemuseum-6536a360615545b5a42cf6e4a4eebfc2",
+  "isDownloadable": true,
+  "isProtected": false,
+  "description": "Reconstruction Details: https://scantricks.wordpress.com/2018/05/18/norsk-folkemuseum/\nNorsk Folkemuseum\nKJONE FRA KARSRUD I V\u00c5LE, CA. 1835\n\nOverf\u00f8rt til museet 1935, gjenoppf\u00f8rt 1936\n\nI kjona ble det t\u00f8rket korn, lin og hamp. Denne kjona er spesiell fordi det i f\u00f8rste etasje, som ble kalt \u00abomnshuset\u00bb, var et lite ildsted midt p\u00e5 gulvet, istedenfor den mer vanlige badstuovnen. I andre etasje var det karmer med spiler over \u2013 \u00abkarma\u00bb med \u00abspili\u00bb \u2013 der avlingen ble lagt for \u00e5 t\u00f8rkes. Varm luft og r\u00f8yk trengte opp fra omnshuset gjennom en \u00e5pning mellom karmene.\n\nGoPro3+ mounted on expencive professional drone(selfie-stick), 400 shots, some texture retouch against hard sun glare in Blender. Love old norwegian buildings.\n![](https://dms-cf-06.dimu.org/image/012wX1PwUmpA?dimension=1200x1200)",
+  "price": null,
+  "downloadCount": 630,
+  "editorUrl": "https://sketchfab.com/models/6536a360615545b5a42cf6e4a4eebfc2/edit",
+  "status": {
+    "warning": {},
+    "processing": "SUCCEEDED"
+  },
+  "source": "website",
+  "hasCommentsDisabled": false,
+  "updatedAt": "2022-07-17T14:37:33.274657",
+  "pbrType": null,
+  "textureCount": 1,
+  "materialCount": 2
+}

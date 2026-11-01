@@ -1,0 +1,191 @@
+{
+  "animationCount": 0,
+  "categories": [
+    {
+      "uid": "22a2f677efad4d7bbca5ad45f9b5868e",
+      "name": "Cars & Vehicles",
+      "slug": "cars-vehicles",
+      "uri": "https://api.sketchfab.com/v3/categories/22a2f677efad4d7bbca5ad45f9b5868e",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/45dd0cc0860ac57fcd63bde1cc3f2b7c-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/22a2f677efad4d7bbca5ad45f9b5868e/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/22a2f677efad4d7bbca5ad45f9b5868e/800x450.png"
+        }
+      ]
+    },
+    {
+      "uid": "c51b29706d4e4e93a82e5eea7cbe6f91",
+      "name": "Places & Travel",
+      "slug": "places-travel",
+      "uri": "https://api.sketchfab.com/v3/categories/c51b29706d4e4e93a82e5eea7cbe6f91",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/49547fe422db0fdef3c06c199f367b2a-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/c51b29706d4e4e93a82e5eea7cbe6f91/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/c51b29706d4e4e93a82e5eea7cbe6f91/800x450.png"
+        }
+      ]
+    }
+  ],
+  "commentCount": 3,
+  "createdAt": "2024-10-24T04:19:15.276198",
+  "embedUrl": "https://sketchfab.com/models/49d570e8f28746b19a87cb01fcbd7b74/embed",
+  "faceCount": 116644,
+  "isAgeRestricted": false,
+  "license": {
+    "uri": "https://api.sketchfab.com/v3/licenses/322a749bcfa841b29dff1e8a1bb74b0b",
+    "label": "CC Attribution",
+    "fullName": "Creative Commons Attribution",
+    "requirements": "Author must be credited. Commercial use is allowed.",
+    "url": "http://creativecommons.org/licenses/by/4.0/",
+    "slug": "by"
+  },
+  "likeCount": 30,
+  "name": "Polar Express Coach With Observation",
+  "publishedAt": "2024-10-24T04:24:09.584116",
+  "soundCount": 0,
+  "staffpickedAt": null,
+  "tags": [
+    {
+      "name": "train",
+      "slug": "train",
+      "uri": "https://api.sketchfab.com/v3/tags/train"
+    },
+    {
+      "name": "locomotive",
+      "slug": "locomotive",
+      "uri": "https://api.sketchfab.com/v3/tags/locomotive"
+    },
+    {
+      "name": "Polar",
+      "slug": "polar",
+      "uri": "https://api.sketchfab.com/v3/tags/polar"
+    },
+    {
+      "name": "express",
+      "slug": "express",
+      "uri": "https://api.sketchfab.com/v3/tags/express"
+    },
+    {
+      "name": "passenger",
+      "slug": "passenger",
+      "uri": "https://api.sketchfab.com/v3/tags/passenger"
+    },
+    {
+      "name": "car",
+      "slug": "car",
+      "uri": "https://api.sketchfab.com/v3/tags/car"
+    }
+  ],
+  "thumbnails": {
+    "images": [
+      {
+        "uid": "93eb51b61bcc4a0a8b3e823b70c45d51",
+        "width": 1920,
+        "height": 1080,
+        "size": 369725,
+        "url": "https://media.sketchfab.com/models/49d570e8f28746b19a87cb01fcbd7b74/thumbnails/02441a443f284c6a80fde1e089437f6e/38ad5b74929d46c3a343763db5c6bea0.jpeg"
+      },
+      {
+        "uid": "6ad96af97dce4810b1297c89bdac7740",
+        "width": 1024,
+        "height": 576,
+        "size": 61577,
+        "url": "https://media.sketchfab.com/models/49d570e8f28746b19a87cb01fcbd7b74/thumbnails/02441a443f284c6a80fde1e089437f6e/fabd76dd41e1464faf6dc5a26199d4db.jpeg"
+      },
+      {
+        "uid": "336d6686b1a04b1c89907f9d8d747d50",
+        "width": 720,
+        "height": 405,
+        "size": 36520,
+        "url": "https://media.sketchfab.com/models/49d570e8f28746b19a87cb01fcbd7b74/thumbnails/02441a443f284c6a80fde1e089437f6e/e114b0254c1b4558bbdff4b522174174.jpeg"
+      },
+      {
+        "uid": "553b5d1356a54011bb83ecef3d30d360",
+        "width": 256,
+        "height": 144,
+        "size": 8299,
+        "url": "https://media.sketchfab.com/models/49d570e8f28746b19a87cb01fcbd7b74/thumbnails/02441a443f284c6a80fde1e089437f6e/74cefb1ac00a431aaa8acefd84f2abf2.jpeg"
+      },
+      {
+        "uid": "097ccbde50a04c4aabdc7f281f2e6db2",
+        "width": 64,
+        "height": 36,
+        "size": 1535,
+        "url": "https://media.sketchfab.com/models/49d570e8f28746b19a87cb01fcbd7b74/thumbnails/02441a443f284c6a80fde1e089437f6e/4033b9df40bb43e98cec77b2876383b9.jpeg"
+      }
+    ]
+  },
+  "uid": "49d570e8f28746b19a87cb01fcbd7b74",
+  "uri": "https://api.sketchfab.com/v3/models/49d570e8f28746b19a87cb01fcbd7b74",
+  "user": {
+    "uid": "c25f03ac278848ebb2fa9d99a42588fa",
+    "username": "mcflyinfnaf",
+    "displayName": "mcfly in fnaf",
+    "account": "basic",
+    "profileUrl": "https://sketchfab.com/mcflyinfnaf",
+    "avatar": {
+      "uid": "e99153b7f1ce411994927d17368aabdd",
+      "uri": "https://api.sketchfab.com/v3/avatars/e99153b7f1ce411994927d17368aabdd",
+      "images": [
+        {
+          "width": 32,
+          "height": 32,
+          "size": 1870,
+          "url": "https://media.sketchfab.com/avatars/e99153b7f1ce411994927d17368aabdd/94c1856e8a144c19b0acbe8e31163e7b.png"
+        },
+        {
+          "width": 48,
+          "height": 48,
+          "size": 3611,
+          "url": "https://media.sketchfab.com/avatars/e99153b7f1ce411994927d17368aabdd/44e36bbab2624a5688cf5bb85402fb8a.png"
+        },
+        {
+          "width": 90,
+          "height": 90,
+          "size": 10202,
+          "url": "https://media.sketchfab.com/avatars/e99153b7f1ce411994927d17368aabdd/64641299a1614536af2201278fd0acda.png"
+        },
+        {
+          "width": 100,
+          "height": 100,
+          "size": 12164,
+          "url": "https://media.sketchfab.com/avatars/e99153b7f1ce411994927d17368aabdd/5eb98ac976294b06967696730d1e6a3b.png"
+        }
+      ]
+    },
+    "uri": "https://api.sketchfab.com/v3/users/c25f03ac278848ebb2fa9d99a42588fa"
+  },
+  "vertexCount": 61606,
+  "viewCount": 4032,
+  "viewerUrl": "https://sketchfab.com/3d-models/polar-express-coach-with-observation-49d570e8f28746b19a87cb01fcbd7b74",
+  "isDownloadable": true,
+  "isProtected": false,
+  "description": "the polar express coach cars along with its Observation car \n\ncredits: https://steamcommunity.com/sharedfiles/filedetails/?id=3053325456",
+  "price": null,
+  "downloadCount": 474,
+  "editorUrl": "https://sketchfab.com/models/49d570e8f28746b19a87cb01fcbd7b74/edit",
+  "status": {
+    "warning": {},
+    "processing": "SUCCEEDED"
+  },
+  "source": "website",
+  "hasCommentsDisabled": false,
+  "updatedAt": "2025-01-04T06:41:17.526617",
+  "pbrType": null,
+  "textureCount": 8,
+  "materialCount": 9
+}

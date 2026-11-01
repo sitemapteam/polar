@@ -1,0 +1,37 @@
+{
+  "recording": "Polar Express whistle, improved sample",
+  "engineAttribution": "Sierra Railway No. 28, as requested; historical identification reported by Soundeffects Wiki, not independently certified",
+  "source": "https://soundeffects.fandom.com/wiki/SKYWALKER,_TRAIN_-_POLAR_EXPRESS_WHISTLE/Audio_Samples",
+  "copyright": "Skywalker Sound / original film rights holders; downloaded sample has no open license stated",
+  "fileMetadata": {
+    "batchcomplete": "",
+    "query": {
+      "pages": {
+        "620917": {
+          "pageid": 620917,
+          "ns": 6,
+          "title": "File:SKYWALKER, TRAIN - POLAR EXPRESS WHISTLE (improved).wav",
+          "imagerepository": "local",
+          "imageinfo": [
+            {
+              "url": "https://static.wikia.nocookie.net/soundeffects/images/d/df/SKYWALKER%2C_TRAIN_-_POLAR_EXPRESS_WHISTLE_%28improved%29.wav/revision/latest?cb=20260426204401",
+              "descriptionurl": "https://soundeffects.fandom.com/wiki/File:SKYWALKER,_TRAIN_-_POLAR_EXPRESS_WHISTLE_(improved).wav",
+              "descriptionshorturl": "https://soundeffects.fandom.com/index.php?curid=620917",
+              "extmetadata": {
+                "DateTime": {
+                  "value": "2026-04-26T20:44:01Z",
+                  "source": "mediawiki-metadata",
+                  "hidden": ""
+                },
+                "ObjectName": {
+                  "value": "SKYWALKER, TRAIN - POLAR EXPRESS WHISTLE (improved)",
+                  "source": "mediawiki-metadata"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

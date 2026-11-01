@@ -1,0 +1,10 @@
+
+
+Polar Express source replacement, 1 November 2026
+- The Polar Express Locomotive — PlaneHarmony389; CC BY 4.0. https://sketchfab.com/3d-models/ab72c9db48e94ff29d24f8673dcf0f36
+- Polar Express Coach With Observation — mcfly in fnaf; CC BY 4.0. https://sketchfab.com/3d-models/49d570e8f28746b19a87cb01fcbd7b74
+- The Polar Express Characters — Jamessmartguy; CC BY 4.0. https://sketchfab.com/3d-models/df53c19ab7354c10b58c976ba769f69e
+- POLAR EXPRESS HOUSE REMADE — Jayexe the accurate model creator; CC BY 4.0. https://sketchfab.com/3d-models/27e811251c9343d7b155d2df6b2d6905
+Original download ZIPs and license.txt files are retained in downloads/polar-linked. Runtime GLBs embed the original geometry, textures and materials; placement and batching adapt them to the scene. Original Big Boy remains in the Preserved editions.
+Christmas Tree by Marc Sawyer (whitewashstudio), CC BY 4.0: https://sketchfab.com/3d-models/christmas-tree-037e1ac7f30543d1b0f2635b1d1e2e1a
+Bridge: original authored geometry inspired by Arthalis’s paid Polar Express bridge preview. No paid model was downloaded or copied. Five masonry arches, weathered brick, stone arch rings, snow caps and warm lights follow the route.

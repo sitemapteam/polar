@@ -1,0 +1,1 @@
+{"name":"polar-northbound","version":"1.0.0","private":true,"description":"A cinematic northern steam-train audiobook journey","engines":{"node":">=18"},"scripts":{"build":"node build.cjs","start":"node serve.cjs","check":"node restore-assets.cjs --verify"}}

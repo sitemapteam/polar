@@ -1,0 +1,210 @@
+Steam Locomotive 'Union Pacific BigBoy'
+Author: Footloose — https://sketchfab.com/Footloose
+Source: https://sketchfab.com/3d-models/steam-locomotive-union-pacific-bigboy-dff7f4b67c734d4db430d8c47810a6cd
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+License terms: https://creativecommons.org/licenses/by/4.0/
+
+Supplied by the user as steam_locomotive_union_pacific_bigboy.glb.
+Adaptations: removed display track; baked transforms; separated tender,
+articulated front assembly, and 38 wheels; replaced the source's moving rods
+and valve-gear meshes with four pin-connected runtime mechanisms.
+Walschaerts linkage dimensions fit this visual asset; they are not measured
+4014 engineering drawings. Fixed-length rods, slider crossheads, expansion
+links, radius rods, union links, combination levers and quartering are animated.
+Original body textures, X4015 marking and coal tender are retained. This is
+the selected Big Boy asset, not an exact replica of restored No. 4014.
+The author does not endorse these adaptations.
+
+WINTER LANDSCAPE
+Actual Nantahala Gorge railway alignment near Wesser, North Carolina.
+Elevation: Mapzen / AWS Terrain Tiles, including USGS sources.
+https://registry.opendata.aws/terrain-tiles/
+Detailed source attribution: https://github.com/tilezen/joerd/blob/master/docs/attribution.md
+Railway, river and road alignments: © OpenStreetMap contributors, ODbL.
+https://www.openstreetmap.org/copyright
+Railway way 372670109. Approximately 8.33 km of route.
+Snow cover, trees, boulders, lighting and weather are artistic reconstruction.
+The scene does not claim Big Boy operated on this route.
+Snow 02 by Rob Tuytel / Poly Haven, CC0, 4096px diffuse and normal maps.
+https://polyhaven.com/a/snow_02
+https://polyhaven.com/license
+
+WHISTLE
+Downloaded recording labeled 'up4014 whistle', posted by
+PitchParallelCompressor94653 on Voicemod Tuna; 9.216 seconds.
+https://tuna.voicemod.net/sound/eb0d7b16-c89c-4649-b8b4-1e7e7b6b19f4
+The original recording provenance and attribution are not independently
+verified. Included in this personal local document; no general redistribution
+license is asserted. Remaining railway ambience is synthesized.
+
+Three.js r160 is used under its MIT license. See THREE-LICENSE.txt.
+
+FOREST AND GEOLOGY UPGRADE
+Poly Haven Fir Tree 01 — Rico Cilliers and Rob Tuytel, CC0.
+https://polyhaven.com/a/fir_tree_01
+Poly Haven Tree Small 02 — Rico Cilliers, CC0.
+https://polyhaven.com/a/tree_small_02
+Adaptations: selected fir variant, removed broadleaf foliage for winter,
+optimized geometry, varied crown proportions, and shader snow accumulation.
+Near trees use real branch and needle meshes. Distant trees are rendered
+silhouettes of the same assets. Species shapes and tree positions are scenic
+reconstructions, not a botanical survey of this exact route.
+Rock Face 03 — Dario Barresi and Rico Cilliers / Poly Haven, CC0.
+https://polyhaven.com/a/rock_face_03
+Rock Face 01 scanned geometry — Dario Barresi / Poly Haven, CC0.
+https://polyhaven.com/a/rock_face_01
+Local ledges, fine erosion, snow distribution, and river turbulence are
+reconstructed detail on the real elevation and waterway alignments.
+Reference photographs were viewed for comparison and are not embedded.
+
+RUNNING AUDIO UPGRADE
+Single steam train chuff — birdOfTheNorth, derived from Keith Peter's
+field recording, CC0. Trimmed/enveloped, filtered, and timed to wheel rotation.
+https://freesound.org/people/birdOfTheNorth/sounds/623817/
+Original source: https://freesound.org/people/keithpeter/sounds/125211/
+Steam locomotive, between 2 wagons — Joseph SARDIN / BigSoundBank, CC0.
+https://bigsoundbank.com/steam-locomotive-between-2-wagons-s3020.html
+Adaptations: crossfaded loop, filtering, playback rate and dynamic mixing.
+These steam samples are not claimed to have been recorded on Big Boy 4014.
+Crew radio dialogue is fictional, synthesized with macOS Samantha and Daniel,
+then band-limited with saturation, squelch and radio noise. It is not a real
+railroad transmission. Remaining steam/rolling/mechanical/river layers are
+synthesized. This supersedes the earlier 'remaining ambience synthesized' note.
+
+FINAL AUDIO REVISION — supersedes synthesized crew dialogue above
+The macOS voices and their distortion chain were removed from the document.
+The departure cue now uses a 10.5-second excerpt of a human radio recording:
+BNSF Radio Chatter — wrinkledsack, CC0, recorded at Rochelle Railroad Park,
+September 12, 2024. Excerpt 89.5–100.0 seconds; level adjustment and short fades.
+https://freesound.org/people/wrinkledsack/sounds/754239/
+This is railway-radio ambience, not a recording of a 4014 departure.
+The doubled short exhaust samples were removed; playback uses a single softer
+pulse and a longer natural-pitch steam bed with softer envelopes.
+
+MECHANICAL / EXHAUST REFINEMENT
+The missing left articulated steam inlet pipe is mirrored from the supplied
+right-hand mesh, retaining its texture; both spans follow front-engine motion
+between boiler and cylinder attachment points. Piston and valve stems, guides
+and packing glands are aligned to measured model cylinder centers. Rod lengths
+keep their tips inside the cylinders throughout the full quartered stroke.
+Exhaust emitters now match the stack casing, with tighter initial jets,
+speed-dependent exhaust and gradual wind entrainment / condensation dispersion.
+These remain visual mechanisms and particle effects, not an engineering or
+computational-fluid-dynamics simulation.
+
+ARTICULATION OWNERSHIP CORRECTION
+Replaced the global per-triangle height split with explicit source-part ownership
+and welded connected components. The complete boiler shell, boiler handrails,
+running boards and boiler-mounted pipework remain fixed to the locomotive body.
+Front-platform rails and fittings follow their platform as complete rigid parts;
+front cylinders and running gear follow the articulated engine, while rear
+cylinder castings remain entirely on the fixed engine. Only the original shared
+central frame is partitioned at the articulation pivot.
+Validation: 1,627 component assignments checked; 13,393 sampled boiler vertices
+showed zero movement relative to the body at both articulation limits.
+
+WALSCHAERTS AND PASSENGER REVISION
+The original textured main and coupling rod forgings have been restored to the
+animated gear. Profiled links, paired slotted expansion plates, a sliding die,
+reverse and lifting links, pins and bearing bosses replace the earlier thin bars.
+Passenger-car artwork, human models, music, recordings and generated food texture:
+see DINING-ASSET-NOTES.txt for credits, adaptations and the generation prompt.
+
+EXPERIENCE REVISION — 31 October 2026
+Kokoro-82M neural dialogue (Apache 2.0), rendered locally with kokoro-onnx.
+https://huggingface.co/hexgrad/Kokoro-82M
+Audio-driven mouth cues: Rhubarb Lip Sync (MIT), transcript-guided analysis.
+https://github.com/DanielSWolf/rhubarb-lip-sync
+Controller design references: Three.js animation examples and pixiv ChatVRM.
+No additional human models or motion-capture assets were incorporated.
+See EXPERIENCE-REBUILD-NOTES.txt for exact source references and adaptations.
+
+NORTHBOUND REVISION — 31 October 2026
+The active player no longer loads the former café, character models, voices or music.
+User-supplied audiobook: /Users/austincline/Desktop/new_polar.mov, an audio reading
+of The Polar Express by Chris Van Allsburg. The provided MP3 stream is retained.
+The northern terrain is an artistic reinterpretation of the open DEM base,
+with snow, stone and tree assets credited above. See NORTHBOUND-NOTES.txt.
+
+Additional winter route sources, 31 October 2026
+Santa Claus by MATB (alcides.tamaca), CC BY 4.0:
+https://sketchfab.com/3d-models/santa-claus-fff7fc4dd7b84e0992ffbb10aeb4a3b1
+https://creativecommons.org/licenses/by/4.0/
+Changes: normalized scale, relit materials, sleigh-group movement and scene integration.
+Distributed GLB obtained from public Objaverse mirror; original attribution embedded in GLB.
+Rock Face 02, Snow Field Aerial, Weathered Plank Siding: Poly Haven, CC0.
+Full reference and runtime asset sources are listed in reference-assets/README.txt.
+Powered by Poly Haven. The application does not call the live API.
+
+Replacement celebration assets
+Santa Model by bharathsrk13, CC BY 4.0:
+https://sketchfab.com/3d-models/santa-model-1e80f404af40420583dbf2dc85bd35e8
+Changes: scale normalization, material relighting, custom sleigh and story movement.
+This replaces the MATB Santa model in the active build.
+Celebration crowd: existing Sam and Maya human sources authored by Innerscene
+Corp under CC0, using the MakeHuman anatomy and original facial textures.
+Adaptations: baked idle poses, geometry detail levels, workshop colors, hats,
+breathing / small gesture motion and instancing. Source copyright is in the GLBs.
+Architectural references: Visit Norway, Norwegian Wooden Architecture and Røros.
+https://www.visitnorway.com/things-to-do/art-culture/architecture/norwegian-wooden-architecture/
+https://www.visitnorway.com/places-to-go/trondelag/roros/
+
+Historical Norwegian cabin photogrammetry by Epic_Tree_Store, CC BY 4.0:
+Cabin 56, Norsk Folkemuseum:
+https://sketchfab.com/3d-models/d032f905bb1c41cc8a6d5f8b35057055
+Kjone fra Karlsrud:
+https://sketchfab.com/3d-models/6536a360615545b5a42cf6e4a4eebfc2
+Changes: cropped surrounding scanned ground, simplified geometry, resized texture
+atlases, normalized scale, snow shading and foundations.
+Three.js r160 postprocessing examples, MIT, copyright Three.js authors:
+https://github.com/mrdoob/three.js/tree/r160/examples/jsm/postprocessing
+
+Coach visual reference: the original 1985 Polar Express back-cover illustration
+by Chris Van Allsburg, inspected via a first-edition bookseller photograph:
+https://www.carolinianararebooks.com/pages/books/11645/chris-van-allsburg/the-polar-express
+Reference only; artwork is not embedded. Adapted coach palette and window proportions:
+slate-blue lower body/roof, muted burgundy window band, warm yellow glazing.
+
+Coach interior reference: official Thienemann publisher preview of Der Polarexpress,
+illustrations by Chris Van Allsburg. Reference only, not embedded:
+https://www.thienemann.de/produkt/der-polarexpress-isbn-978-3-8489-0175-3
+Heavyweight truck geometry reference: NMRA passenger car truck data sheet D5b:
+https://www.nmra.org/sites/default/files/d5b.pdf
+Runtime adaptations: open tender coal bunker (arched cover and ribs removed);
+forward-facing crosshead/combination linkage; original source GLB retained.
+
+Additional runtime adaptations: leading locomotive truck frame replaced by a new
+open cast A-frame with leaf springs; source trailing frame separated for independent
+steering/pitch. Wheel profiles, rolling stock chassis and steam joints follow the
+authored route. Frozen-lake basin, ice shader and fractures are original scene code.
+
+Photographic village rebuild
+Original scene code: six architectural families (rorbu, villa, saltbox, warehouse,
+boathouse and shop), supported waterfronts, boats, boardwalks, ropes and fittings.
+Roof Slates 02 by Rob Tuytel / Poly Haven, CC0, 4K diffuse / 2K normal maps:
+https://polyhaven.com/a/roof_slates_02
+Pueblo Nórdico en Invierno by Fernando Jaque (FerJ), CC BY 4.0, source reference:
+https://sketchfab.com/3d-models/pueblo-nordico-en-invierno-bf6d4855f6004980be9e9c369577c8fe
+Exact GLB retained in reference-assets; not included in the active experience.
+Walschaerts construction references:
+https://www.fs160.eu/fiNeweb/Lconstruction/walschaerts/walschaerts.php
+https://sdrm.info/faqs/boilers/page89.html
+Big Boy ball-joint castings reference, Union Pacific restoration documentation:
+https://www.up.com/news/heritage/steam-update-08-25-2017
+Runtime additions: split gray steam-joint housings, bolted flanges, bronze sealing
+rings, spring retainers and articulated necks; cylinder-end source bends removed.
+
+Christmas celebration and closing sequence
+3December 8: Reindeer by Alejandro Guzmán (Glifo), CC BY 4.0:
+https://sketchfab.com/3d-models/3december-8-reindeer-0e92e5abf0f34444922783a90472073f
+The model author credits its source photograph to Alexandre Buisse, CC BY-SA 3.0.
+Embedded photo texture retained. Runtime adaptations: scale, eight copies, leather
+harnesses, reins, silver bells, leg deformation, prancing and a circling departure.
+The source GLB metadata and license record are retained in reference-assets.
+Original code/assets: patterned gift wraps, ribbon bows, decorated spruce assembly,
+ornaments, fairy lights, stone-course tunnel shader, extended tunnel and final camera
+sequence. silver-sleigh-bell.wav is original additive modal synthesis with a stereo
+diffuse echo, generated by code; no third-party sound recording was used.
+
+Realistic Polar Express Coach (W/ Minor Updates), Maritime Opossum, CC BY 4.0. https://sketchfab.com/3d-models/realistic-polar-express-coach-w-minor-updates-8b914a4d14544e7d8e0f5ea3db4eff5b
+Interior meshes extracted and fitted to the existing cars, with adapted ceiling lighting. Full source GLB retained unchanged.
