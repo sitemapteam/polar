@@ -4,13 +4,19 @@
   "private": true,
   "description": "A cinematic northern steam-train audiobook journey",
   "engines": {
-    "node": ">=18"
+    "node": ">=22.12.0"
   },
   "scripts": {
     "build": "node build.cjs",
     "start": "node serve.cjs",
     "check": "node restore-assets.cjs --verify",
     "build:web": "node build.cjs --web",
-    "preview:web": "node serve.cjs --web"
+    "preview:web": "node serve.cjs --web",
+    "bake:water": "node bake-water.cjs",
+    "test": "node --test runtime.test.cjs"
+  },
+  "devDependencies": {
+    "meshoptimizer": "^1.1.1",
+    "puppeteer-core": "^25.16.0"
   }
 }

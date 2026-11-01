@@ -25,19 +25,32 @@ function createWebBuild(root) {
     fs.writeFileSync(path.join(destination, name), `window.${global}=${JSON.stringify(values)};`);
     written.add(name);
   }
-  function finish(html) {
+  async function finish(html) {
+    const optimized = new Map();
+    for (const name of ["cliff-data.js", "alpine-rock-data.js"]) optimized.set(name, await require("./optimize-scenery.cjs").optimizeSceneryScript(fs.readFileSync(path.join(root, name))));
     fs.appendFileSync(path.join(destination, 'winter-assets.js'), '\nwindow.BIGBOY_STORY=' + fs.readFileSync(path.join(root, 'story-cues.json'), 'utf8') + ';');
     // This app uses classic scripts and embedded CSS; its other runtime inputs
     // are the explicit asset entries above or data/blob URLs inside these scripts.
     html = html.replace(/<script src="([^"]+)"><\/script>/g, (tag, name) => {
       if (!/^[\w.-]+\.js$/.test(name)) throw new Error('Unexpected runtime script: ' + name);
-      const bytes = fs.readFileSync(path.join(written.has(name) ? destination : root, name));
+      const bytes = optimized.get(name) || fs.readFileSync(path.join(written.has(name) ? destination : root, name));
       const hash = crypto.createHash('sha256').update(bytes).digest('hex').slice(0, 20);
       const filename = `assets/${path.basename(name, '.js')}.${hash}.js`;
       fs.writeFileSync(path.join(destination, filename), bytes);
       if (written.has(name)) fs.unlinkSync(path.join(destination, name));
       return `<script src="${filename}"></script>`;
     });
+    const cacheFile=path.join(root,'.assets/water-cache.json.gz'),metaFile=path.join(root,'.assets/water-cache.meta.json');
+    if(fs.existsSync(cacheFile)&&fs.existsSync(metaFile)){
+      const hash=crypto.createHash('sha256');
+      for(const name of ['winter-landscape.js','river-runtime.js','geography-data.js','terrain-cache-data.js'])hash.update(fs.readFileSync(path.join(root,name)));
+      if(JSON.parse(fs.readFileSync(metaFile)).sourceHash===hash.digest('hex')){
+        const bytes=fs.readFileSync(cacheFile),name='assets/water-cache.'+crypto.createHash('sha256').update(bytes).digest('hex').slice(0,20)+'.json.gz';
+        fs.writeFileSync(path.join(destination,name),bytes);
+        html=html.replace('<script>',`<script>window.POLAR_WATER_CACHE=${JSON.stringify(name)};</script><script>`);
+        console.log('Using prebuilt water geometry');
+      }
+    }
     fs.writeFileSync(path.join(destination, 'index.html'), html);
     for (const name of ['MODEL-CREDITS.txt', 'THREE-LICENSE.txt']) {
       fs.copyFileSync(path.join(root, name), path.join(destination, name));
