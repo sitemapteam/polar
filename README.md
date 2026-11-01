@@ -20,7 +20,6 @@ Use **Begin journey** to start the recording. **Cab** enters the locomotive; dra
 ```sh
 npm ci
 npm run check
-npm test
 npm run build:web
 npm run preview:web
 ```
@@ -29,7 +28,7 @@ Publish **only `dist/`**. The web build copies the generated page's script depen
 
 Models are served as losslessly compressed binary files; textures and recordings keep their original bytes. Asset filenames contain content hashes for reliable long-term caching. The offline build remains available via `npm run build`.
 
-Rendering preserves the cinematic HDR, bloom, ACES tone mapping, 4096-pixel shadow maps and stable 1.5–1.75× rendering resolution. The HDR target is single-sampled: combining its bloom pipeline with multisampling caused black rectangles at Retina resolutions. FXAA runs at the supersampled resolution before the browser displays the image. Distant trees are batched by location, retaining every atlas variant and tree while allowing offscreen woodland to be culled. Terrain and scenery are split into bounded batches for view and shadow culling. Nearby trees use 3D geometry; distant woodland uses an atlas rendered from the same trees. Web builds simplify background rock indices while preserving their textures; locomotive and coach geometry remain unchanged. Four stable local lights avoid shader changes as interiors enter view, and water reflections run at most 30 times per second. `window.__performanceState` exposes measured frame time, resolution and whole-frame draw counts. Frame rate still depends on the client GPU; hosting resources cannot increase its rendering capacity.
+The hosted app uses the original Polar rendering, scenery, lighting, audio mix, camera behavior and quality settings from commit `d4b9ff1`. Deployment changes are limited to external asset loading, content-hashed filenames, cache headers and an isolated `dist/` directory. No model simplification, replacement lighting, scene partitioning or automatic quality controller is applied by the web build.
 
 With the web preview running and Chrome installed, `npm run check:browser` checks the large Retina viewport for black rectangles, then exercises resize, audio, cab view, pause/resume and seeking. Set `POLAR_URL` to check a deployed site.
 
@@ -39,7 +38,7 @@ Firebase Hosting is configured to publish `dist/` to the `sitemap-polar` site. B
 
 Runtime inputs are stored losslessly in `.assets/` as small compressed parts to stay below GitHub's individual-file limits. `asset-manifest.json` records their original paths, sizes and SHA-256 checksums. Building restores missing inputs automatically; `npm run check` verifies them.
 
-Terrain and water caches retain the generated landscape and water geometry, avoiding repeated calculations on startup. The water cache is used only when its source hash matches. To regenerate it after changing the landscape or river, build and serve the web app, then run `POLAR_BAKE_URL=http://127.0.0.1:4173/ npm run bake:water` with Chrome installed (or set `CHROME_BIN`), and rebuild. Shader preparation runs before playback to reduce first-use stalls. Train effects are scheduled ahead on the audio clock rather than tied to rendered frames. GLBs use lossless compression and native byte decoding. Coaches share geometry and textures; full interior detail is selected for nearby cars. Original source model detail is retained.
+The original terrain cache and offline build remain available. Restored model, texture and recording files are not transcoded or simplified for deployment.
 
 The original Big Boy source and its preserved portable edition remain in the original local project; the active build in this repository uses the requested Polar Express model. They have not been deleted from that workspace.
 

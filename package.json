@@ -12,12 +12,9 @@
     "check": "node restore-assets.cjs --verify",
     "build:web": "node build.cjs --web",
     "preview:web": "node serve.cjs --web",
-    "bake:water": "node bake-water.cjs",
-    "test": "node --test runtime.test.cjs",
     "check:browser": "node browser-check.cjs"
   },
   "devDependencies": {
-    "meshoptimizer": "^1.1.1",
     "puppeteer-core": "^25.16.0"
   }
 }

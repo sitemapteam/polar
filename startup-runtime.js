@@ -7,15 +7,6 @@ async function readPackedAsset(store,key,release=false){
  else bytes=store.$gzip?.includes(key)?await inflateAsset(store[key]):decodeBase64Bytes(store[key]);
  if(release)delete store[key];return bytes;
 }
-async function readWaterGeometryCache(){
- if(!window.POLAR_WATER_CACHE)return null;
- try{
-  const response=await fetch(window.POLAR_WATER_CACHE);if(!response.ok)throw Error('Water cache unavailable');
-  const data=await new Response(response.body.pipeThrough(new DecompressionStream('gzip'))).json(),geometry=new T.BufferGeometry();
-  for(const [name,attribute]of Object.entries(data.attributes))geometry.setAttribute(name,new T.BufferAttribute(new Float32Array(decodeBase64Bytes(attribute.data).buffer),attribute.itemSize));
-  window.__waterTopology={...data.topology,cached:true};return geometry;
- }catch(error){console.warn('Rebuilding water geometry:',error.message);return null;}
-}
 function releaseGLTFSource(asset){asset.scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});asset.scene.clear();asset.parser=null;}
 window.__startupStages=[];
 async function bootYield(label){if(label)$('loading').querySelector('p').textContent=label;window.__startupStages.push({label,time:performance.now()});if(window.scheduler?.yield)await window.scheduler.yield();else await new Promise(resolve=>setTimeout(resolve,0));}
