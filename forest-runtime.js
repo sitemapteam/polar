@@ -1,7 +1,7 @@
 // Full 3D, textured Poly Haven trees near the railway. Distant woodland uses renders of these same trees.
 $('loading').querySelector('p').textContent='GROWING THE WINTER FOREST';
-const forestData=window.BIGBOY_FOREST,forestTextures={};await Promise.all(Object.entries(forestData.textures).map(async([key,uri])=>{const tx=await textureLoader.loadAsync(uri);tx.colorSpace=key.includes('diff')?T.SRGBColorSpace:T.NoColorSpace;tx.flipY=false;tx.wrapS=tx.wrapT=T.RepeatWrapping;tx.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());forestTextures[key]=tx;}));
-function arrayFrom64(encoded,Type){return new Type(decodeBase64Bytes(encoded).buffer);}
+const forestData=await hydratePackedArrays(window.BIGBOY_FOREST),forestTextures={};await Promise.all(Object.entries(forestData.textures).map(async([key,uri])=>{const tx=await textureLoader.loadAsync(uri);tx.colorSpace=key.includes('diff')?T.SRGBColorSpace:T.NoColorSpace;tx.flipY=false;tx.wrapS=tx.wrapT=T.RepeatWrapping;tx.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());forestTextures[key]=tx;}));
+function arrayFrom64(encoded,Type){const bytes=decodeBase64Bytes(encoded);return new Type(bytes.buffer,bytes.byteOffset,bytes.byteLength/Type.BYTES_PER_ELEMENT);}
 const forestVariants=[],forestPools=[],forestPositions=[],forestDecoded=new WeakMap(),fullTreeGeometries=new WeakMap();
 for(let kind=0;kind<2;kind++)for(let variant=0;variant<6;variant++){
  const source=forestData.trees[kind],snowLoad=[.10,.18,.24,.30,.38,.48][variant],parts=[];

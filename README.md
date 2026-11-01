@@ -13,7 +13,7 @@ npm start
 
 Open http://127.0.0.1:4173, or double-click **Big Boy 4014.html** after building. **Big Boy 4014 Portable.html** is the generated, self-contained offline edition.
 
-Use **Begin journey** to start the recording. **Cab** enters the locomotive; drag to look around and scroll to change the field of view. The other camera buttons return outside. **Hide controls** also hides titles; its button remains available to restore the interface.
+Choose **Load journey** to initialize the scene, then **Begin journey** to start the recording. Opening the page alone does not allocate a WebGL scene. **Cab** enters the locomotive; drag to look around and scroll to change the field of view. The other camera buttons return outside. **Hide controls** also hides titles; its button remains available to restore the interface.
 
 ## Web build and deployment
 
@@ -28,7 +28,11 @@ Publish **only `dist/`**. The web build copies the generated page's script depen
 
 Models are served as losslessly compressed binary files; textures and recordings keep their original bytes. Asset filenames contain content hashes for reliable long-term caching. The offline build remains available via `npm run build`.
 
-The hosted app preserves the original Polar scenery, models, textures, lighting, audio mix and camera behavior from commit `d4b9ff1`. Rendering goes directly to the hardware-antialiased canvas at device resolution (up to 2×), removing the full-frame FXAA softening filter and HDR/bloom processing chain. The timeline no longer lowers pixel density during the Santa sequence. Each final frame explicitly restores the full canvas viewport. No model simplification, scene partitioning or automatic quality reduction is applied. Web packaging uses external assets, content-hashed filenames, cache headers and an isolated `dist/` directory.
+The hosted app retains the original Polar models, textures, lighting, audio mix, camera behavior and HDR/FXAA rendering path from commit `d4b9ff1`. The direct-canvas Retina experiment was rolled back. Default-framebuffer multisampling is disabled because antialiasing already occurs in the compositor. Rendering stops while paused after camera motion settles, and opening the page waits for **Load journey** before creating the scene.
+
+The web build extracts embedded binary data from six large scene scripts into compressed binary packs and original texture files. Their JavaScript changes from 184.6 MiB of embedded data to 86.5 KiB of manifests; the complete published payload is about 243 MiB. Array offsets are four-byte aligned, and runtime typed arrays use their exact byte ranges. The original geometry and image bytes are preserved. The offline build still supports embedded assets. `web-build-manifest.json` records the packaging sizes. Cliff and alpine source geometries are released after their runtime copies are prepared.
+
+This reduces packaging and idle overhead; it does not establish a frame-rate or crash-free guarantee. No browser tests or performance benchmarks were run for this change, at the user's request.
 
 With the web preview running and Chrome installed, `npm run check:browser` checks the large Retina viewport for black rectangles, then exercises resize, audio, cab view, pause/resume and seeking. Set `POLAR_URL` to check a deployed site.
 
