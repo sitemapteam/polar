@@ -1,5 +1,24 @@
-// HDR keeps bright windows and lamps distinct from diffuse snow; bloom is deliberately restrained.
-const hdrTarget=new T.WebGLRenderTarget(innerWidth*renderer.getPixelRatio(),innerHeight*renderer.getPixelRatio(),{type:T.HalfFloatType,minFilter:T.LinearFilter,magFilter:T.LinearFilter});hdrTarget.samples=0;
-const composer=new window.BigBoyPostFX.EffectComposer(renderer,hdrTarget);composer.setSize(innerWidth,innerHeight);composer.addPass(new window.BigBoyPostFX.RenderPass(scene,camera));const cinematicBloom=new window.BigBoyPostFX.UnrealBloomPass(new T.Vector2(innerWidth,innerHeight),.20,.48,1.10);composer.addPass(cinematicBloom);composer.addPass(new window.BigBoyPostFX.OutputPass());const cinematicFXAA=new window.BigBoyPostFX.ShaderPass(window.BigBoyPostFX.FXAAShader);cinematicFXAA.material.uniforms.resolution.value.set(1/(innerWidth*renderer.getPixelRatio()),1/(innerHeight*renderer.getPixelRatio()));composer.addPass(cinematicFXAA);window.__postFXState={hdr:true,multisampling:hdrTarget.samples,bloomStrength:.20,bloomThreshold:1.10,output:'ACES / sRGB'};
-
-window.__bigboyDebug.composer=composer;
+// Render directly into the antialiased canvas. A full-frame FXAA pass softened
+// the train and the HDR/bloom chain required multiple large intermediate targets.
+// Native MSAA smooths geometry edges while preserving texture detail; Three.js
+// applies the existing ACES exposure and sRGB output on this final framebuffer.
+function resizeScene(){
+  camera.aspect=innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+  renderer.setSize(innerWidth,innerHeight);
+}
+function renderScene(){
+  renderer.setRenderTarget(null);
+  renderer.setScissorTest(false);
+  renderer.setViewport(0,0,innerWidth,innerHeight);
+  renderer.render(scene,camera);
+}
+window.__postFXState={
+  antialiasing:'native canvas MSAA',
+  antialiasingAvailable:renderer.getContext().getContextAttributes().antialias,
+  fullFrameBlur:false,
+  bloom:false,
+  output:'ACES / sRGB',
+  resolution:'device pixels, up to 2x; no timeline resolution drops'
+};

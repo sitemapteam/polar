@@ -28,7 +28,7 @@ Publish **only `dist/`**. The web build copies the generated page's script depen
 
 Models are served as losslessly compressed binary files; textures and recordings keep their original bytes. Asset filenames contain content hashes for reliable long-term caching. The offline build remains available via `npm run build`.
 
-The hosted app uses the original Polar rendering, scenery, lighting, audio mix, camera behavior and quality settings from commit `d4b9ff1`. Deployment changes are limited to external asset loading, content-hashed filenames, cache headers and an isolated `dist/` directory. No model simplification, replacement lighting, scene partitioning or automatic quality controller is applied by the web build.
+The hosted app preserves the original Polar scenery, models, textures, lighting, audio mix and camera behavior from commit `d4b9ff1`. Rendering goes directly to the hardware-antialiased canvas at device resolution (up to 2×), removing the full-frame FXAA softening filter and HDR/bloom processing chain. The timeline no longer lowers pixel density during the Santa sequence. Each final frame explicitly restores the full canvas viewport. No model simplification, scene partitioning or automatic quality reduction is applied. Web packaging uses external assets, content-hashed filenames, cache headers and an isolated `dist/` directory.
 
 With the web preview running and Chrome installed, `npm run check:browser` checks the large Retina viewport for black rectangles, then exercises resize, audio, cab view, pause/resume and seeking. Set `POLAR_URL` to check a deployed site.
 
