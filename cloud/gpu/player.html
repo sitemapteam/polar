@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="referrer" content="no-referrer"><title>Polar</title><style>html,body{margin:0;background:#081a22;color:#f2eddf;width:100%;height:100%;overflow:hidden}#app{width:100%;height:100%}</style></head><body><div id="app"></div>
+<script>
+'use strict';
+const portal='https://sitemap-polar.web.app';
+window.__SELKIES_STREAMING_MODE__='websockets';
+// Some browsers partition or deny embedded storage. Settings may live only
+// for this page; playback must not depend on third-party cookies or storage.
+for(const name of ['localStorage','sessionStorage']){try{window[name].getItem('polar-probe')}catch{const values=new Map();Object.defineProperty(window,name,{value:{get length(){return values.size},key:i=>Array.from(values.keys())[i]??null,getItem:k=>values.get(String(k))??null,setItem:(k,v)=>values.set(String(k),String(v)),removeItem:k=>values.delete(String(k)),clear:()=>values.clear()}})}}
+let ready=false;
+window.addEventListener('message',event=>{if(event.source===parent&&event.origin===portal&&event.data?.type==='polar-reconnect')location.reload()});
+// Report a decoded picture, not merely a successful socket or iframe load.
+setInterval(()=>{const video=document.querySelector('video');const client=window.stream_client;if(!ready&&((video&&video.videoWidth>0&&video.readyState>=2)||(client?.resolution&&client?.codec))){ready=true;parent.postMessage({type:'polar-ready'},portal)}},500);
+window.addEventListener('error',event=>{if(/Failed to fetch dynamically imported module|Error loading dynamically imported module/.test(event.message))parent.postMessage({type:'polar-error',message:'The video player could not load. Please reconnect.'},portal)});
+</script><script type="module" src="/selkies-core.js"></script></body></html>

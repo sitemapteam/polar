@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<title>The Polar Express · Northbound</title>
+<style>
+:root{color-scheme:dark;font:16px system-ui,sans-serif;background:#081a22;color:#f2eddf}*{box-sizing:border-box}body{margin:0}main{min-height:100svh;display:grid;place-items:center;padding:28px}section{max-width:420px;width:100%}h1{font:48px Georgia,serif;margin:10px 0 24px}p{line-height:1.6;color:#c3ced0}.eyebrow{font-size:12px;letter-spacing:.24em;color:#e7c68a}label{display:block;margin:24px 0 8px}input,button,select{font:inherit;border-radius:8px;padding:13px;border:1px solid #73878c}input{width:100%;background:#142b33;color:white}button{cursor:pointer;background:#e7c68a;color:#12252b;font-weight:600}form button{width:100%;margin-top:16px}button:disabled{opacity:.55;cursor:wait}#status{min-height:3em}iframe{position:fixed;inset:0;border:0;width:100%;height:100dvh;background:#081a22}#tools{position:fixed;z-index:10;top:max(8px,env(safe-area-inset-top));right:max(8px,env(safe-area-inset-right));display:flex;gap:6px;align-items:center}#tools button,#tools select{padding:8px;background:#122a32df;color:#f2eddf;font-size:13px}#notice{position:fixed;bottom:max(12px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:11;padding:10px 16px;max-width:90%;border-radius:8px;background:#122a32ed;text-align:center;font-size:14px}[hidden]{display:none!important}
+</style>
+<main id="welcome"><section><div class="eyebrow">THE POLAR EXPRESS</div><h1>Northbound</h1><p>A journey into the northern night, rendered in the cloud.</p><form id="login"><label for="password">Journey access code</label><input id="password" type="password" autocomplete="current-password" required><button id="connect">Enter journey</button></form><p id="status" role="status" aria-live="polite">Use your Polar streaming access code.</p></section></main>
+<iframe id="stream" title="Polar interactive journey" allow="autoplay; fullscreen" allowfullscreen referrerpolicy="no-referrer" hidden></iframe>
+<div id="tools" hidden><button id="fullscreen">Full screen</button><button id="leave">Disconnect</button></div><div id="notice" role="status" hidden></div>
+<script>
+'use strict';
+const backend='https://polar.34-121-203-186.sslip.io';
+const $=id=>document.getElementById(id);
+let token='',heartbeat,timeout,frameReady=false;
+const saved=()=>{try{return sessionStorage.getItem('polar-session')||''}catch{return ''}};
+function save(value){try{value?sessionStorage.setItem('polar-session',value):sessionStorage.removeItem('polar-session')}catch{}}
+async function api(path,body){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);try{const response=await fetch(backend+'/polar/'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal:controller.signal,cache:'no-store'});const data=await response.json();if(!response.ok)throw Error(data.error||'The journey is unavailable. Please try again.');return data}finally{clearTimeout(timer)}}
+function notify(text){$('notice').textContent=text;$('notice').hidden=!text}
+function send(type,extra={}){$('stream').contentWindow?.postMessage({type,...extra},backend)}
+function disconnect(message='Disconnected. You can reconnect below.'){clearInterval(heartbeat);clearTimeout(timeout);const old=token;token='';save('');$('stream').src='about:blank';$('stream').hidden=true;$('tools').hidden=true;$('welcome').hidden=false;$('status').textContent=message;notify('');if(old)api('end',{token:old}).catch(()=>{})}
+function enter(value){token=value;save(value);frameReady=false;$('stream').src=backend+'/player.html#token='+encodeURIComponent(token);$('stream').hidden=false;$('tools').hidden=false;$('welcome').hidden=true;notify('Connecting to the journey…');clearTimeout(timeout);timeout=setTimeout(()=>{if(!frameReady)disconnect('The stream could not connect. Please retry; no 3D scene was loaded on this device.')},30000);clearInterval(heartbeat);let failures=0;heartbeat=setInterval(async()=>{if(!token)return;try{await api('heartbeat',{token});failures=0}catch(e){if(++failures>=3)disconnect('The connection was interrupted. Please reconnect.')}},15000)}
+$('login').addEventListener('submit',async event=>{event.preventDefault();$('connect').disabled=true;$('status').textContent='Connecting…';try{const data=await api('session',{password:$('password').value});$('password').value='';enter(data.token)}catch(e){$('status').textContent=e.name==='AbortError'?'The cloud renderer is not responding. Please try again shortly.':e.message}finally{$('connect').disabled=false}});
+window.addEventListener('message',event=>{if(event.origin!==backend||event.source!==$('stream').contentWindow)return;const m=event.data;if(m?.type==='polar-ready'){frameReady=true;clearTimeout(timeout);notify('')}if(m?.type==='polar-error')disconnect(m.message||'Unable to start playback on this browser.');if(m?.type==='polar-status')notify(m.message)});
+$('leave').onclick=()=>disconnect();$('fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();else notify('Rotate your device to landscape for a larger picture.')}catch{notify('Full screen is unavailable in this browser.')}};
+window.addEventListener('online',()=>{if(token)send('polar-reconnect')});
+(async()=>{const previous=saved();if(previous){try{await api('heartbeat',{token:previous});enter(previous)}catch{save('')}}})();
+</script>
+</html>

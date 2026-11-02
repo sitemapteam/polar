@@ -42,7 +42,7 @@ Firebase Hosting is configured to publish `dist/` to the `sitemap-polar` site. B
 
 The app's public address remains **https://sitemap-polar.web.app**. Do not introduce another user-facing domain without explicit authorization.
 
-The separate GPU deployment on `polar-gpu-1` (`g2-standard-8`, NVIDIA L4, `us-east4-a`) is stopped following rejection of the alternate domain. It is not serving the public app. Its infrastructure scripts remain under `cloud/gpu/`, outside the web build. Any future integration must preserve the existing public address. Restarting this machine alone does not integrate it with Firebase Hosting.
+The proposed GPU integration uses `polar-gpu-2` (`g2-standard-8`, NVIDIA L4, `us-central1-a`) behind the existing Firebase address. The integration is not released; this VM is stopped pending review. The original `polar-gpu-1` in `us-east4-a` remains stopped. GPU capacity was unavailable in both `us-east4-a` and `us-east4-c`. Streaming, session access, and deployment instructions are in [cloud/gpu/README.md](cloud/gpu/README.md). Rendering code and quality settings must not be changed as part of this URL integration.
 
 Compute/GPU charges stop while the VM is stopped; its retained disk and reserved IP still incur charges.
 

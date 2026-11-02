@@ -88,7 +88,11 @@ function createWebBuild(root) {
       if (written.has(name)) fs.unlinkSync(path.join(destination, name));
       return `<script src="${filename}"></script>`;
     });
-    fs.writeFileSync(path.join(destination, 'index.html'), html);
+    // The GPU browser loads this root-level page so asset URLs remain valid.
+    // Streaming is opt-in at build time until the backend has been verified.
+    fs.writeFileSync(path.join(destination, 'scene.html'), html);
+    fs.writeFileSync(path.join(destination, 'index.html'), process.env.POLAR_GPU_STREAM === '1'
+      ? fs.readFileSync(path.join(root, 'cloud/gpu/portal.html')) : html);
     for (const name of ['MODEL-CREDITS.txt', 'THREE-LICENSE.txt']) {
       fs.copyFileSync(path.join(root, name), path.join(destination, name));
     }
