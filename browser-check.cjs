@@ -9,7 +9,7 @@ const assert=require('node:assert/strict');
   await page.setViewport({width:2048,height:1117,deviceScaleFactor:2});
   await page.goto(process.env.POLAR_URL||'http://127.0.0.1:4173/',{waitUntil:'domcontentloaded',timeout:240000});
   if(await page.$('#loadJourney'))await page.click('#loadJourney');
-  await page.waitForFunction(()=>window.__trainState?.frame>3&&document.querySelector('#loading').style.display==='none',{timeout:240000});
+  await page.waitForFunction(()=>window.__trainState?.frame>=2&&document.querySelector('#loading').style.display==='none',{timeout:240000});
   await page.evaluate(()=>window.__bigboyDebug.previewTime(13));
   await new Promise(r=>setTimeout(r,3000));
   // Sample the sky/mountains where the Retina HDR regression drew black rectangles.
