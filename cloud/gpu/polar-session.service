@@ -1,0 +1,21 @@
+[Unit]
+Description=Polar streaming session broker
+After=docker.service network-online.target
+Requires=docker.service
+
+[Service]
+Type=simple
+User=root
+EnvironmentFile=/opt/polar-gpu/polar-gpu-auth.env
+EnvironmentFile=/opt/polar-gpu/polar-session.env
+ExecStart=/usr/bin/python3 /opt/polar-gpu/session-broker.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+RestrictAddressFamilies=AF_INET AF_INET6
+
+[Install]
+WantedBy=multi-user.target
