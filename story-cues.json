@@ -677,10 +677,16 @@
       "gain": 0.17
     },
     {
-      "time": 377.0,
+      "time": 377.38,
       "kind": "creak",
       "duration": 1.5,
       "gain": 0.075
+    },
+    {
+      "time": 384.78,
+      "kind": "brake",
+      "duration": 2.54,
+      "gain": 0.035
     },
     {
       "time": 404.9,
@@ -700,5 +706,10 @@
       "duration": 10,
       "gain": 0.28
     }
-  ]
+  ],
+  "motion": {
+    "northPoleDeparture": 377.38,
+    "homeBraking": 384.78,
+    "homeStop": 387.32
+  }
 }

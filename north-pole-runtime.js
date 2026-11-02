@@ -2,7 +2,7 @@
 const poleRoot=new T.Group();pose(poleRoot,2420);poleRoot.rotation.z=0;poleRoot.name='North Pole Christmas Square';scene.add(poleRoot);
 const poleDecor=new T.Group();poleRoot.add(poleDecor);box(poleDecor,96,3,82,32,-.25,67,villageMasonry);box(poleDecor,96,.25,82,32,1.25,67,villageSnow);
 const headquarters=buildSantaLodge(poleDecor);headquarters.position.set(18,1.4,133);
-const tower=fjordHouse(poleDecor,{kind:'villa',w:14,d:15,storeys:3,paint:6,seed:4,shop:'SANTA’S WORKSHOP'});tower.position.set(-14,1.4,95);
+const tower=fjordHouse(poleDecor,{kind:'villa',w:14,d:15,storeys:3,paint:0,seed:4,shop:'WORKSHOP CLOCK TOWER'});tower.position.set(-14,1.4,95);
 const clockFace=mesh(new T.CircleGeometry(2.2,48),villageIvory,poleDecor,-14,12.3,87.35);clockFace.rotation.y=Math.PI;const clockRim=mesh(new T.TorusGeometry(2.25,.12,8,48),villageGold,poleDecor,-14,12.3,87.15);for(let i=0;i<12;i++){const a=i/12*TAU;ball(poleDecor,.10,-14+Math.sin(a)*1.8,12.3+Math.cos(a)*1.8,87.07,villageDark);}box(poleDecor,.12,1.5,.1,-14,12.95,87.02,villageDark);const hand=box(poleDecor,1.2,.11,.1,-13.5,12.3,87.00,villageDark);hand.rotation.z=.3;
 for(let i=0;i<5;i++){const x=-62+i*15,stall=fjordHouse(poleDecor,{kind:'shop',w:8,d:6,storeys:1,paint:i,seed:i+2,shop:['HOT COCOA','GINGERBREAD','TOYS','BELLS','POST'][i]});stall.position.set(x,1.4,90);}
 for(const z of [80]){const points=[];for(let i=0;i<=24;i++){const u=i/24;points.push(v(-12+u*105,10.5-Math.sin(u*Math.PI)*2,z));if(i%1===0)ball(poleDecor,.10,-12+u*105,10.5-Math.sin(u*Math.PI)*2,z,villageWindow);}mesh(new T.TubeGeometry(new T.CatmullRomCurve3(points),48,.024,5,false),villageDark,poleDecor);for(const x of [-12,93])cyl(poleDecor,.12,10,x,6.4,z,villageGreen,'y',.16,10);}

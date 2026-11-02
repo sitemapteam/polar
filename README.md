@@ -28,11 +28,11 @@ Publish **only `dist/`**. The web build copies the generated page's script depen
 
 Models are served as losslessly compressed binary files; textures and recordings keep their original bytes. Asset filenames contain content hashes for reliable long-term caching. The offline build remains available via `npm run build`.
 
-The hosted app retains the original Polar models, textures, lighting, audio mix, camera behavior and HDR/FXAA rendering path from commit `d4b9ff1`. The direct-canvas Retina experiment was rolled back. Default-framebuffer multisampling is disabled because antialiasing already occurs in the compositor. Rendering stops while paused after camera motion settles, and opening the page waits for **Load journey** before creating the scene.
+The web build retains the original Polar models, textures, lighting and HDR/FXAA rendering path from commit `d4b9ff1`. Train effects and narration movement cues are maintained in `story-audio.js`, `journey-runtime.js` and `story-cues.json`. The direct-canvas Retina experiment was rolled back. Default-framebuffer multisampling is disabled because antialiasing already occurs in the compositor. Rendering stops while paused after camera motion settles, and opening the page waits for **Load journey** before creating the scene.
 
 The web build extracts embedded binary data from six large scene scripts into compressed binary packs and original texture files. Their JavaScript changes from 184.6 MiB of embedded data to 86.5 KiB of manifests; the complete published payload is about 243 MiB. Array offsets are four-byte aligned, and runtime typed arrays use their exact byte ranges. The original geometry and image bytes are preserved. The offline build still supports embedded assets. `web-build-manifest.json` records the packaging sizes. Cliff and alpine source geometries are released after their runtime copies are prepared.
 
-This reduces packaging and idle overhead; it does not establish a frame-rate or crash-free guarantee. No browser tests or performance benchmarks were run for this change, at the user's request.
+This reduces packaging and idle overhead; it does not establish a frame-rate or crash-free guarantee.
 
 With the web preview running and Chrome installed, `npm run check:browser` checks the large Retina viewport for black rectangles, then exercises resize, audio, cab view, pause/resume and seeking. Set `POLAR_URL` to check a deployed site.
 
@@ -55,6 +55,15 @@ The original terrain cache and offline build remain available. Restored model, t
 The original Big Boy source and its preserved portable edition remain in the original local project; the active build in this repository uses the requested Polar Express model. They have not been deleted from that workspace.
 
 ## Recent changes
+
+- Both boy’s houses have brick walkways extending 6.096 metres (20 feet) from their front steps.
+- The passenger interior camera follows the carriage directly, with no lateral oscillation and a gentle eased aisle move. Eight distinct seated children wear long-sleeved flannel pajamas with collars, piping and varied patterns.
+
+- North Pole departure waits for “lurch” at 377.38 seconds. Braking starts with the home-arrival sentence at 384.78 seconds, and the train stops at 387.32 seconds.
+- The boy’s neighborhood has no station, and the return approach has no extra hill.
+- Santa’s workshop uses consistent red siding and ivory trim, with repeated glazed bays, decorations and softer amber windows.
+- Exhaust and axle impacts follow wheel travel on the narration clock; the unrelated running-steam loop is removed.
+- Nordlys station and village sit before the Arctic viaduct. The gorge and scenery clearance preserve open views through all five arches from both sides.
 
 - Four regular coaches, followed by one observation car, with animated wheelsets.
 - Front pony and rear trailing trucks swivel independently of the locomotive body.
